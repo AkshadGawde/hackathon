@@ -1,25 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-} from "recharts";
-import Nav from "@/Components/Nav";
-import Footer from "@/Components/Footer";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/Components/ui/card";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/Components/ui/card";
 import { Button } from "@/Components/ui/button";
-import { Progress } from "@material-tailwind/react";
+import { ResponsiveContainer } from "recharts";
+import Footer from "@/Components/Footer";
 
 const Account = () => {
   const navigate = useNavigate();
@@ -29,16 +13,16 @@ const Account = () => {
   };
 
   const navAlerts = () => {
-    navigate("/elibrary")
-  }
+    navigate("/elibrary");
+  };
 
   const navNetwork = () => {
-    navigate("/attendance")
-  }
+    navigate("/attendance");
+  };
 
   const navHome = () => {
-    navigate("/account")
-  }
+    navigate("/account");
+  };
 
   // Test Content, to be replaced by Data from Firestore
   const userName = "Test User";
@@ -60,13 +44,13 @@ const Account = () => {
   const newIssues = [
     {
       title: "Retailer 4",
-      description: "Late Delivery"
+      description: "Late Delivery",
     },
     {
       title: "Retailer 5",
-      description: "Faulty Pieces"
-    }
-  ]
+      description: "Faulty Pieces",
+    },
+  ];
 
   const newRequests = [
     {
@@ -87,37 +71,50 @@ const Account = () => {
     },
   ];
 
+  const progress = 70;
+
   return (
     <>
-      <Nav />
       <div className="px-4 md:px-12 py-5 w-full">
         <p className="font-bold text-3xl md:text-5xl mx-3 my-5">
           Welcome, {userName}
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           <Card>
-            <CardHeader>
-              <CardTitle>Retailers</CardTitle>
-            </CardHeader>
-            <CardContent className="grid gap-4">
-              {newAssignments.map((assignment, index) => (
-                <div
-                  key={index}
-                  className="flex items-center justify-between border-b border-gray-200 pb-2"
-                >
-                  <div>
-                    <p className="text-lg font-semibold">{assignment.title}</p>
-                    <p className="text-sm text-gray-500">
-                      {assignment.description}
-                    </p>
+            <ResponsiveContainer>
+              <CardHeader>
+                <CardTitle>Retailers</CardTitle>
+              </CardHeader>
+              <CardContent className="grid gap-4">
+                {newAssignments.map((assignment, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center justify-between border-b border-gray-200 pb-2"
+                  >
+                    <div>
+                      <p className="text-lg font-semibold">
+                        {assignment.title}
+                      </p>
+                      <p className="text-sm text-gray-500">
+                        {assignment.description}
+                      </p>
+                    </div>
+                    {/* Progress Bar */}
+                    <div className="w-1/2 h-3 bg-gray-200 rounded-full overflow-hidden">
+                      <div
+                        className="h-full bg-blue-500"
+                        style={{ width: `${progress}%` }}
+                      ></div>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </CardContent>
-            <CardFooter>
-              <Button onClick={navNetwork}>View All</Button>
-            </CardFooter>
+                ))}
+              </CardContent>
+              <CardFooter>
+                <Button onClick={navNetwork}>View All</Button>
+              </CardFooter>
+            </ResponsiveContainer>
           </Card>
+
           <Card>
             <ResponsiveContainer>
               <CardHeader>
@@ -130,7 +127,9 @@ const Account = () => {
                     className="flex items-center justify-between border-b border-gray-200 pb-2"
                   >
                     <div>
-                      <p className="text-lg font-semibold">{assignment.title}</p>
+                      <p className="text-lg font-semibold">
+                        {assignment.title}
+                      </p>
                       <p className="text-sm text-gray-500">
                         {assignment.description}
                       </p>
@@ -145,27 +144,31 @@ const Account = () => {
           </Card>
 
           <Card>
-            <CardHeader>
-              <CardTitle>Requests</CardTitle>
-            </CardHeader>
-            <CardContent className="grid gap-4">
-              {newRequests.map((assignment, index) => (
-                <div
-                  key={index}
-                  className="flex items-center justify-between border-b border-gray-200 pb-2"
-                >
-                  <div>
-                    <p className="text-lg font-semibold">{assignment.title}</p>
-                    <p className="text-sm text-gray-500">
-                      {assignment.description}
-                    </p>
+            <ResponsiveContainer>
+              <CardHeader>
+                <CardTitle>Requests</CardTitle>
+              </CardHeader>
+              <CardContent className="grid gap-4">
+                {newRequests.map((assignment, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center justify-between border-b border-gray-200 pb-2"
+                  >
+                    <div>
+                      <p className="text-lg font-semibold">
+                        {assignment.title}
+                      </p>
+                      <p className="text-sm text-gray-500">
+                        {assignment.description}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </CardContent>
-            <CardFooter>
-              <Button onClick={navAlerts}>View All</Button>
-            </CardFooter>
+                ))}
+              </CardContent>
+              <CardFooter>
+                <Button onClick={navAlerts}>View All</Button>
+              </CardFooter>
+            </ResponsiveContainer>
           </Card>
         </div>
       </div>
