@@ -20,7 +20,7 @@ const Home = () => {
             role="alert"
           >
             <span class="text-xs bg-blue-600 rounded-full text-white px-4 py-1.5 mr-3">
-              Faculty
+              Retail
             </span>{" "}
             <span class="text-sm font-medium"> Welcome ! {user && user.email}</span>
             <svg
