@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Nav from "../../../Components/Nav";
 import Footer from "../../../Components/Footer";
+import axa from "../../../../public/images/download.jpeg";
 import {
   Card,
   CardHeader,
@@ -41,12 +42,12 @@ const Courses = () => {
 
   // Dummy data for story bar
   const stories = [
-    { profile: "User1", image: "story1.jpg" },
-    { profile: "User2", image: "story2.jpg" },
-    { profile: "User3", image: "story3.jpg" },
-    { profile: "User4", image: "story1.jpg" },
-    { profile: "User5", image: "story2.jpg" },
-    { profile: "User6", image: "story3.jpg" },
+    { profile: "User1", image: axa }, // Use the imported image directly
+    { profile: "User2", image: axa },
+    { profile: "User3", image: axa },
+    { profile: "User4", image: axa },
+    { profile: "User5", image: axa },
+    { profile: "User6", image: axa },
     // Add more profiles as needed
   ];
 
@@ -105,7 +106,7 @@ const Courses = () => {
             <Card key={index} className="w-full bg-gray-900 text-white">
               <CardHeader color="blueGray" className="relative h-56">
                 <img
-                  src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
+                  src="https://img.freepik.com/premium-photo/funny-donkey-with-funny-face_1001743-1360.jpg"
                   alt="card-image"
                 />
               </CardHeader>
