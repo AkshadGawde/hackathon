@@ -8,9 +8,10 @@ const Attendance = () => {
     {
       id: 1,
       name: "John Doe",
-      occupation: "Groceory Store",
+      occupation: "Grocery Store",
       connections: 500,
       itemsSold: 350,
+      loyaltyPoints: 150,
     },
     {
       id: 2,
@@ -18,6 +19,7 @@ const Attendance = () => {
       occupation: "Grocery Store",
       connections: 700,
       itemsSold: 420,
+      loyaltyPoints: 200,
     },
     {
       id: 3,
@@ -25,6 +27,7 @@ const Attendance = () => {
       occupation: "Grocery Store",
       connections: 300,
       itemsSold: 250,
+      loyaltyPoints: 100,
     },
     {
       id: 4,
@@ -32,6 +35,7 @@ const Attendance = () => {
       occupation: "Grocery Store",
       connections: 500,
       itemsSold: 350,
+      loyaltyPoints: 150,
     },
     {
       id: 5,
@@ -39,6 +43,7 @@ const Attendance = () => {
       occupation: "Supper Mart",
       connections: 700,
       itemsSold: 420,
+      loyaltyPoints: 200,
     },
     {
       id: 6,
@@ -46,6 +51,7 @@ const Attendance = () => {
       occupation: "Supper Mart",
       connections: 300,
       itemsSold: 250,
+      loyaltyPoints: 100,
     },
     // Add more connections
   ];
@@ -96,14 +102,17 @@ const Attendance = () => {
                   <h2 className="text-lg text-blue-500 font-semibold">{person.name}</h2>
                   <p className="text-white-600">{person.occupation}</p>
                 </div>
-              </div>  
-              <div className="flex justify-between items-center">
-                <div className="flex flex-col">
-                  <p className="text-white-600">
+              </div>
+              <div className="flex flex-col">
+                <div className="text-white-600 mb-2">
+                  <p>
                     Connections: {person.connections}
                   </p>
-                  <p className="text-white-600">
+                  <p>
                     Items Sold: {person.itemsSold}
+                  </p>
+                  <p>
+                    Loyalty Points: {person.loyaltyPoints}
                   </p>
                 </div>
                 <div className="relative w-full">
@@ -113,18 +122,20 @@ const Attendance = () => {
                         width: `${(person.itemsSold / person.connections) * 100}%`,
                         backgroundColor: "#3f51b5",
                       }}
-                      className="h-full bg-gradient-to-r from-blue-500 to-green-500 transition-all duration-500 ease-in-out hover:from-yellow-400 hover:to-red-400"
+                      className="h-full bg-gradient-to-r from-red-500 to-green-400 via-yellow-500"
                     ></div>
                   </div>
                 </div>
               </div>
-              <button
-                className="flex items-center text-blue-500 mt-2"
-                onClick={() => alert("Message button clicked")}
-              >
-                <FiUserPlus className="mr-1" />
-                Message
-              </button>
+              <div className="mt-auto">
+                <button
+                  className="flex items-center text-blue-500"
+                  onClick={() => alert("Message button clicked")}
+                >
+                  <FiUserPlus className="mr-1" />
+                  Message
+                </button>
+              </div>
             </div>
           ))}
         </div>
