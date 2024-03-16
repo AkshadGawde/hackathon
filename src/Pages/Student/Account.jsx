@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import ProgressBar from "react-bootstrap/ProgressBar";
 import {
   BarChart,
   Bar,
@@ -20,13 +19,26 @@ import {
   CardTitle,
 } from "@/Components/ui/card";
 import { Button } from "@/Components/ui/button";
+import { Progress } from "@material-tailwind/react";
 
 const Account = () => {
   const navigate = useNavigate();
 
-  const navAssignments = () => {
-    navigate("/assignments");
+  const navExplore = () => {
+    navigate("/courses");
   };
+
+  const navAlerts = () => {
+    navigate("/elibrary")
+  }
+
+  const navNetwork = () => {
+    navigate("/attendance")
+  }
+
+  const navHome = () => {
+    navigate("/account")
+  }
 
   // Test Content, to be replaced by Data from Firestore
   const userName = "Test User";
@@ -45,16 +57,16 @@ const Account = () => {
     },
   ];
 
-const newIssues = [
-  {
-    title : "Retailer 4",
-    description : "Late Delivery"
-  } , 
-  {
-    title :"Retailer 5" , 
-    description : "Faulty Pieces"
-  }
-]
+  const newIssues = [
+    {
+      title: "Retailer 4",
+      description: "Late Delivery"
+    },
+    {
+      title: "Retailer 5",
+      description: "Faulty Pieces"
+    }
+  ]
 
   const newRequests = [
     {
@@ -74,7 +86,6 @@ const newIssues = [
       description: "Need 150 units of amul doodh",
     },
   ];
-
 
   return (
     <>
@@ -100,46 +111,44 @@ const newIssues = [
                       {assignment.description}
                     </p>
                   </div>
-                  <div className="flex-shrink-0 h-3 w-3 rounded-full bg-green-500"></div>
                 </div>
               ))}
             </CardContent>
             <CardFooter>
-              <Button onClick={navAssignments}>View All</Button>
+              <Button onClick={navNetwork}>View All</Button>
             </CardFooter>
           </Card>
           <Card>
             <ResponsiveContainer>
               <CardHeader>
                 <CardTitle>Complaints</CardTitle>
-                </CardHeader>
-                <CardContent className="grid gap-4">
+              </CardHeader>
+              <CardContent className="grid gap-4">
                 {newIssues.map((assignment, index) => (
-                <div
-                  key={index}
-                  className="flex items-center justify-between border-b border-gray-200 pb-2"
-                >
-                  <div>
-                    <p className="text-lg font-semibold">{assignment.title}</p>
-                    <p className="text-sm text-gray-500">
-                      {assignment.description}
-                    </p>
+                  <div
+                    key={index}
+                    className="flex items-center justify-between border-b border-gray-200 pb-2"
+                  >
+                    <div>
+                      <p className="text-lg font-semibold">{assignment.title}</p>
+                      <p className="text-sm text-gray-500">
+                        {assignment.description}
+                      </p>
+                    </div>
                   </div>
-                  <div className="flex-shrink-0 h-3 w-3 rounded-full bg-green-500"></div>
-                </div>
-              ))}
-                </CardContent>
+                ))}
+              </CardContent>
               <CardFooter>
-              <Button onClick={navAssignments}>View All</Button>
-            </CardFooter>
+                <Button onClick={navAlerts}>View All</Button>
+              </CardFooter>
             </ResponsiveContainer>
           </Card>
 
           <Card>
-              <CardHeader>
-                <CardTitle>Requests</CardTitle>
-              </CardHeader>
-              <CardContent className="grid gap-4">
+            <CardHeader>
+              <CardTitle>Requests</CardTitle>
+            </CardHeader>
+            <CardContent className="grid gap-4">
               {newRequests.map((assignment, index) => (
                 <div
                   key={index}
@@ -151,13 +160,12 @@ const newIssues = [
                       {assignment.description}
                     </p>
                   </div>
-                  <div className="flex-shrink-0 h-3 w-3 rounded-full bg-green-500"></div>
                 </div>
               ))}
-              </CardContent>
-              <CardFooter>
-              <Button onClick={navAssignments}>View All</Button>
-              </CardFooter>
+            </CardContent>
+            <CardFooter>
+              <Button onClick={navAlerts}>View All</Button>
+            </CardFooter>
           </Card>
         </div>
       </div>

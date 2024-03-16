@@ -41,7 +41,7 @@ const Nav = () => {
       link: "/account",
     },
     {
-      text: "My Network",
+      text: "Network",
       link: "/attendance",
     },
     {
