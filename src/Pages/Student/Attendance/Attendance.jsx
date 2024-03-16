@@ -84,7 +84,8 @@ const Attendance = () => {
 
   const abortDelivery = (id) => {
     setDeliveryStatus({ ...deliveryStatus, [id]: "aborted" });
-    navigate("/feedback"); // Navigating to the "/feedback" route
+    setDeliveryStatus({});
+    alert("sorry")
   };
 
   return (
