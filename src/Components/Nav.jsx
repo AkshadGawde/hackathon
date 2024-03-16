@@ -49,6 +49,10 @@ const Nav = () => {
       link: "/courses",
     },
    
+    {
+      text: "Alerts",
+      link: "/elibrary",
+    },
   ];
 
   return (
