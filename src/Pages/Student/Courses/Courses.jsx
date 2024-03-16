@@ -14,28 +14,28 @@ const Courses = () => {
   // To be replaced after fetching data from firestore
   const courseData = [
     {
-      title: "john doe",
-      description: "Bachelor of Technology in Artificial Intelligence and Data Science",
+      title: "John Doe",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     },
     {
-      title: "psa doe",
-      description: "Bachelor of Technology in Computer Engineering",
+      title: "Psa Doe",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     },
     {
-      title: "john doe",
-      description: "Bachelor of Technology in Artificial Intelligence and Data Science",
+      title: "John Doe",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     },
     {
-      title: "psa doe",
-      description: "Bachelor of Technology in Computer Engineering",
+      title: "Psa Doe",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     },
     {
-      title: "john doe",
-      description: "Bachelor of Technology in Artificial Intelligence and Data Science",
+      title: "John Doe",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     },
     {
-      title: "psa doe",
-      description: "Bachelor of Technology in Computer Engineering",
+      title: "Psa Doe",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     },
   ];
 
