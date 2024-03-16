@@ -42,17 +42,17 @@ const Nav = () => {
                 </li>
                 <li>
                   <a href="#" className="text-white py-2 px-3 border-b-2 border-transparent ">
-                    Attendance
+                    My Network
                   </a>
                 </li>
                 <li>
                   <a href="#" className="text-white py-2 px-3 border-b-2 border-transparent ">
-                    Courses
+                    Explore
                   </a>
                 </li>
                 <li>
                   <a href="#" className="text-white py-2 px-3 border-b-2 border-transparent ">
-                    E Library
+                    Alerts
                   </a>
                 </li>
                 <li>

@@ -36,7 +36,7 @@ const Home = () => {
               ></path>
             </svg>
           </a>
-          <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Faculty Dashboard</h1>
+          <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Retail Dashboard</h1>
 
 
        <div className=" w-dvh h-96 mt-10 mb-10">
