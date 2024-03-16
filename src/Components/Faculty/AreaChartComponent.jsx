@@ -1,5 +1,4 @@
-'use client';
-
+import React from 'react';
 import {
   AreaChart,
   Area,
@@ -14,69 +13,75 @@ import {
 const productSales = [
   {
     name: 'Jan',
-    students_Passing: 40,
-    students_failing: 10,
+    retailer1: 40,
+    retailer2: 40,
   },
   {
     name: 'Feb',
-    students_Passing: 40,
-    students_failing: 5,
+    retailer1: 20,
+    retailer2: 56,
   },
   {
     name: 'Mar',
-    students_Passing: 40,
-    students_failing: 4,
+    retailer1: 4,
+    retailer2: 42,
   },
   {
     name: 'Apr',
-    students_Passing: 40,
-    students_failing: 2,
+    retailer1: 90,
+    retailer2: 30,
   },
   {
     name: 'May',
-    students_Passing: 40,
-    students_failing: 3,
+    retailer1: 80,
+    retailer2: 3,
   },
   {
     name: 'Jun',
-    students_Passing: 40,
-    students_failing: 1,
+    retailer1: 90,
+    retailer2: 20,
   },
 ];
 
+const maxRetailer1Value = Math.max(...productSales.map(item => item.retailer1));
+const maxRetailer2Value = Math.max(...productSales.map(item => item.retailer2));
+const maxRetailerValue = Math.max(maxRetailer1Value, maxRetailer2Value);
+
 const AreaChartComponent = () => {
   return (
-    <ResponsiveContainer width="100%" height="100%">
-      <AreaChart
-        width={500}
-        height={400}
-        data={productSales}
-        margin={{ right: 30 }}
-      >
-        <YAxis />
-        <XAxis dataKey="name" />
-        <CartesianGrid strokeDasharray="5 5" />
+    <div style={{ width: '100%', height: '400px' }}>
+      <ResponsiveContainer>
+        <AreaChart
+          width={500}
+          height={400}
+          data={productSales}
+          margin={{ right: 30 }}
+        >
+          <YAxis domain={[0, maxRetailerValue]} />
+          <XAxis dataKey="name" />
+          <CartesianGrid strokeDasharray="5 5" />
 
-        <Tooltip content={<CustomTooltip />} />
-        <Legend />
+          <Tooltip content={<CustomTooltip />} />
+          <Legend />
 
-        <Area
-          type="monotone"
-          dataKey="students_Passing"
-          stroke="#2563eb"
-          fill="#3b82f6"
-          stackId="1"
-        />
+          <Area
+            type="monotone"
+            dataKey="retailer1"
+            stroke="#2563eb"
+            fill="#3b82f6"
+            stackId={null}
+          />
 
-        <Area
-          type="monotone"
-          dataKey="students_failing"
-          stroke="#7c3aed"
-          fill="#8b5cf6"
-          stackId="1"
-        />
-      </AreaChart>
-    </ResponsiveContainer>
+          <Area
+            type="monotone"
+            dataKey="retailer2"
+            stroke="#7c3aed"
+            fill="#8b5cf6"
+            stackId={null}
+          />
+        </AreaChart>
+      </ResponsiveContainer>
+    </div>
   );
 };
 
@@ -86,11 +91,11 @@ const CustomTooltip = ({ active, payload, label }) => {
       <div className="p-4 bg-slate-900 flex flex-col gap-4 rounded-md">
         <p className="text-medium text-lg">{label}</p>
         <p className="text-sm text-blue-400">
-        Passing Students:
+          retailer1:
           <span className="ml-2">{payload[0].value}</span>
         </p>
         <p className="text-sm text-indigo-400">
-          Failing Students:
+          retailer2:
           <span className="ml-2">{payload[1].value}</span>
         </p>
       </div>
