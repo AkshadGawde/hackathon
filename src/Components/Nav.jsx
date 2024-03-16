@@ -41,7 +41,7 @@ const Nav = () => {
       link: "/account",
     },
     {
-      text: "Network",
+      text: "My Network",
       link: "/attendance",
     },
     {
@@ -49,15 +49,11 @@ const Nav = () => {
       link: "/courses",
     },
    
-    {
-      text: "Alerts",
-      link: "/elibrary",
-    },
   ];
 
   return (
     <nav className="flex flex-row justify-between items-center w-full h-16 px-12 border-b">
-      <div className="text-2xl whitespace-nowrap">Portal</div>
+      <div className="text-2xl whitespace-nowrap">NMIMS Portal</div>
       <div className="flex flex-row">
         <div className="hidden md:block">
           {navButtons.map((element, index) => (

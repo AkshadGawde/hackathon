@@ -25,7 +25,6 @@ const Account = () => {
     navigate("/account");
   };
 
-  // Test Content, to be replaced by Data from Firestore
   const userName = "Test User";
   const newAssignments = [
     {
@@ -68,7 +67,7 @@ const Account = () => {
     },
     {
       title: "Milk vendor",
-      description: "Need 150 units of amul doodh",
+      description: "Need 150 units of Amul Milk",
     },
   ];
 
@@ -76,11 +75,9 @@ const Account = () => {
 
   return (
     <>
-    <Nav />
+      <Nav />
       <div className="px-4 md:px-12 py-5 w-full">
-        <p className="font-bold text-3xl md:text-5xl mx-3 my-5">
-          Welcome, {userName}
-        </p>
+        <p className="font-bold text-3xl md:text-5xl mx-3 my-5">Welcome, {userName}</p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           <Card>
             <ResponsiveContainer>
@@ -94,19 +91,11 @@ const Account = () => {
                     className="flex items-center justify-between border-b border-gray-200 pb-2"
                   >
                     <div>
-                      <p className="text-lg font-semibold">
-                        {assignment.title}
-                      </p>
-                      <p className="text-sm text-gray-500">
-                        {assignment.description}
-                      </p>
+                      <p className="text-lg font-semibold">{assignment.title}</p>
+                      <p className="text-sm text-gray-500">{assignment.description}</p>
                     </div>
-                    {/* Progress Bar */}
                     <div className="w-1/2 h-3 bg-gray-200 rounded-full overflow-hidden">
-                      <div
-                        className="h-full bg-blue-500"
-                        style={{ width: `${progress}%` }}
-                      ></div>
+                      <div className="h-full bg-blue-500" style={{ width: `${progress}%` }}></div>
                     </div>
                   </div>
                 ))}
@@ -123,18 +112,14 @@ const Account = () => {
                 <CardTitle>Complaints</CardTitle>
               </CardHeader>
               <CardContent className="grid gap-4">
-                {newIssues.map((assignment, index) => (
+                {newIssues.map((issue, index) => (
                   <div
                     key={index}
                     className="flex items-center justify-between border-b border-gray-200 pb-2"
                   >
                     <div>
-                      <p className="text-lg font-semibold">
-                        {assignment.title}
-                      </p>
-                      <p className="text-sm text-gray-500">
-                        {assignment.description}
-                      </p>
+                      <p className="text-lg font-semibold">{issue.title}</p>
+                      <p className="text-sm text-gray-500">{issue.description}</p>
                     </div>
                   </div>
                 ))}
@@ -151,18 +136,14 @@ const Account = () => {
                 <CardTitle>Requests</CardTitle>
               </CardHeader>
               <CardContent className="grid gap-4">
-                {newRequests.map((assignment, index) => (
+                {newRequests.map((request, index) => (
                   <div
                     key={index}
                     className="flex items-center justify-between border-b border-gray-200 pb-2"
                   >
                     <div>
-                      <p className="text-lg font-semibold">
-                        {assignment.title}
-                      </p>
-                      <p className="text-sm text-gray-500">
-                        {assignment.description}
-                      </p>
+                      <p className="text-lg font-semibold">{request.title}</p>
+                      <p className="text-sm text-gray-500">{request.description}</p>
                     </div>
                   </div>
                 ))}
