@@ -56,47 +56,25 @@ const newIssues = [
   }
 ]
 
-  const data = [
+  const newRequests = [
     {
-      name: "March",
-      assignments: 10,
+      title: "Toothpaste vendor",
+      description: "Need 200 units of colgate",
     },
     {
-      name: "April",
-      assignments: 1,
+      title: "Battery vendor",
+      description: "Need 394 units of duracell",
     },
     {
-      name: "May",
-      assignments: 5,
+      title: "Stationary vendor",
+      description: "Need 250 units of doms pencil",
     },
     {
-      name: "June",
-      assignments: 2,
+      title: "Milk vendor",
+      description: "Need 150 units of amul doodh",
     },
   ];
 
-  const attendance = [
-    {
-      subName: "DBMS",
-      attended: 12,
-      notAttended: 5,
-    },
-    {
-      subName: "OOPJ",
-      attended: 12,
-      notAttended: 2,
-    },
-    {
-      subName: "CVT",
-      attended: 20,
-      notAttended: 5,
-    },
-    {
-      subName: "COA",
-      attended: 20,
-      notAttended: 3,
-    },
-  ];
 
   return (
     <>
@@ -133,10 +111,36 @@ const newIssues = [
           <Card>
             <ResponsiveContainer>
               <CardHeader>
-                <CardTitle>Issues</CardTitle>
+                <CardTitle>Complaints</CardTitle>
+                </CardHeader>
+                <CardContent className="grid gap-4">
+                {newIssues.map((assignment, index) => (
+                <div
+                  key={index}
+                  className="flex items-center justify-between border-b border-gray-200 pb-2"
+                >
+                  <div>
+                    <p className="text-lg font-semibold">{assignment.title}</p>
+                    <p className="text-sm text-gray-500">
+                      {assignment.description}
+                    </p>
+                  </div>
+                  <div className="flex-shrink-0 h-3 w-3 rounded-full bg-green-500"></div>
+                </div>
+              ))}
+                </CardContent>
+              <CardFooter>
+              <Button onClick={navAssignments}>View All</Button>
+            </CardFooter>
+            </ResponsiveContainer>
+          </Card>
+
+          <Card>
+              <CardHeader>
+                <CardTitle>Requests</CardTitle>
               </CardHeader>
               <CardContent className="grid gap-4">
-              {newIssues.map((assignment, index) => (
+              {newRequests.map((assignment, index) => (
                 <div
                   key={index}
                   className="flex items-center justify-between border-b border-gray-200 pb-2"
@@ -153,30 +157,7 @@ const newIssues = [
               </CardContent>
               <CardFooter>
               <Button onClick={navAssignments}>View All</Button>
-            </CardFooter>
-            </ResponsiveContainer>
-          </Card>
-          <Card>
-            <CardHeader>
-              <CardTitle>Distribution this year</CardTitle>
-              <CardContent>
-                
-              </CardContent>
-            </CardHeader>
-            <CardContent>
-              <ResponsiveContainer width="100%" height={300}>
-                <BarChart
-                  data={data}
-                  margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
-                >
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="name" />
-                  <YAxis />
-                  <Tooltip cursor={false}/>
-                  <Bar dataKey="assignments" fill="#3f88c5" />
-                </BarChart>
-              </ResponsiveContainer>
-            </CardContent>
+              </CardFooter>
           </Card>
         </div>
       </div>
