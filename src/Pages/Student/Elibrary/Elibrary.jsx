@@ -106,7 +106,7 @@ const Elibrary = () => {
           </CardHeader>
           <CardContent className="overflow-auto max-h-72">
             {newIssues.map((issue, index) => (
-              <div key={index} className="flex items-center justify-between border-b border-gray-200 pb-2">
+              <div key={index} className="flex items-center justify-between border-b border-gray-300 pb-2">
                 <div>
                   <p className="text-lg font-semibold">{issue.title}</p>
                   <p className="text-sm text-gray-600">{issue.description}</p>
@@ -125,7 +125,7 @@ const Elibrary = () => {
           </CardHeader>
           <CardContent className="overflow-auto max-h-72">
             {newRequests.map((request, index) => (
-              <div key={index} className="flex flex-col border-b border-gray-200 pb-2">
+              <div key={index} className="flex flex-col border-b border-gray-300 pb-2">
                 <p className="text-lg font-semibold">{request.title}</p>
                 <p className="text-sm text-gray-600">{request.description}</p>
               </div>
@@ -142,7 +142,7 @@ const Elibrary = () => {
           </CardHeader>
           <CardContent>
             {feedbacks.map((feedback, index) => (
-              <div key={index} className="flex flex-col border-b border-gray-200 pb-2">
+              <div key={index} className="flex flex-col border-b border-gray-300 pb-2">
                 <a href="#" className="text-lg font-semibold underline mb-1">{feedback.title}</a>
                 <p className="text-sm text-gray-600">{feedback.description}</p>
               </div>
