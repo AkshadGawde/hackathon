@@ -1,17 +1,40 @@
 import React, { useState } from "react";
 import Nav from "../../../Components/Nav";
 import Footer from "../../../Components/Footer";
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Typography,
+  Button,
+} from "@material-tailwind/react";
 
 const Courses = () => {
   // To be replaced after fetching data from firestore
   const courseData = [
     {
-      title: "Btech AIDS",
-      description:
-        "Bachelor of Technology in Artificial Intelligence and Data Science",
+      title: "john doe",
+      description: "Bachelor of Technology in Artificial Intelligence and Data Science",
     },
     {
-      title: "Btech CE",
+      title: "psa doe",
+      description: "Bachelor of Technology in Computer Engineering",
+    },
+    {
+      title: "john doe",
+      description: "Bachelor of Technology in Artificial Intelligence and Data Science",
+    },
+    {
+      title: "psa doe",
+      description: "Bachelor of Technology in Computer Engineering",
+    },
+    {
+      title: "john doe",
+      description: "Bachelor of Technology in Artificial Intelligence and Data Science",
+    },
+    {
+      title: "psa doe",
       description: "Bachelor of Technology in Computer Engineering",
     },
   ];
@@ -40,7 +63,6 @@ const Courses = () => {
       <div className="container px-12 mt-8">
         {/* Search Bar */}
         <div className="mb-4 w-3/5 mx-auto">
-
           <input
             type="text"
             placeholder="Search people"
@@ -49,7 +71,7 @@ const Courses = () => {
             onChange={(e) => setSearchQuery(e.target.value)}
           />
         </div>
-
+<h3 className="text-3xl font-bold mb-4 text-center"  >Top people</h3>
         {/* Story Bar */}
         <div className="flex justify-center mb-4 overflow-x-auto scrollbar-hidden">
           {filteredStories.map((story, index) => (
@@ -77,28 +99,33 @@ const Courses = () => {
         </div>
 
         {/* Courses Section */}
-        <h1 className="text-3xl font-bold mb-4 text-center">Courses Offered</h1>
+        <h1 className="text-3xl font-bold mb-4 text-center">Recommended people</h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
           {courseData.map((course, index) => (
-            <CourseCard
-              key={index}
-              title={course.title}
-              description={course.description}
-            />
+            <Card key={index} className="w-full bg-gray-900 text-white">
+              <CardHeader color="blueGray" className="relative h-56">
+                <img
+                  src="https://images.unsplash.com/photo-1540553016722-983e48a2cd10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
+                  alt="card-image"
+                />
+              </CardHeader>
+              <CardBody className="text-blueGray-200">
+                <Typography variant="h5" className="mb-2">
+                  {course.title}
+                </Typography>
+                <Typography>
+                  {course.description}
+                </Typography>
+              </CardBody>
+              <CardFooter className="pt-0">
+                <Button color="lightBlue" className="border border-white w-full">Connect</Button>
+              </CardFooter>
+            </Card>
           ))}
         </div>
       </div>
       <Footer />
     </>
-  );
-};
-
-const CourseCard = ({ title, description }) => {
-  return (
-    <div className="bg-muted rounded-lg shadow-md p-6 hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1">
-      <h2 className="text-foreground text-xl font-semibold mb-2">{title}</h2>
-      <p className="text-muted-foreground">{description}</p>
-    </div>
   );
 };
 
