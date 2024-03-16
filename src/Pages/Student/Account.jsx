@@ -82,40 +82,36 @@ const Account = () => {
           Welcome, {userName}
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          <Card>
-            <ResponsiveContainer>
-              <CardHeader>
-                <CardTitle>Retailers</CardTitle>
-              </CardHeader>
-              <CardContent className="grid gap-4">
-                {newAssignments.map((assignment, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center justify-between border-b border-gray-200 pb-2"
-                  >
-                    <div>
-                      <p className="text-lg font-semibold">
-                        {assignment.title}
-                      </p>
-                      <p className="text-sm text-gray-500">
-                        {assignment.description}
-                      </p>
-                    </div>
-                    {/* Progress Bar */}
-                    <div className="w-1/2 h-3 bg-gray-200 rounded-full overflow-hidden">
-                      <div
-                        className="h-full bg-blue-500"
-                        style={{ width: `${progress}%` }}
-                      ></div>
-                    </div>
-                  </div>
-                ))}
-              </CardContent>
-              <CardFooter>
-                <Button onClick={navNetwork}>View All</Button>
-              </CardFooter>
-            </ResponsiveContainer>
-          </Card>
+        <Card>
+  <ResponsiveContainer>
+    <CardHeader>
+      <CardTitle>Retailers</CardTitle>
+    </CardHeader>
+    <CardContent className="grid gap-4">
+      {newAssignments.map((assignment, index) => (
+        <div
+          key={index}
+          className="flex items-center justify-between border-b border-gray-200 pb-2 relative"
+        >
+          <div>
+            <p className="text-lg font-semibold">{assignment.title}</p>
+            <p className="text-sm text-gray-500">{assignment.description}</p>
+          </div>
+          {/* Progress Bar */}
+          <div className="w-1/2 h-3 bg-gray-200 rounded-full overflow-hidden">
+            <div
+              className="h-full bg-gradient-to-r from-blue-500 to-green-500 transition-all duration-500 ease-in-out hover:from-yellow-400 hover:to-red-400"
+              style={{ width: `${progress}%` }}
+            ></div>
+          </div>
+        </div>
+      ))}
+    </CardContent>
+    <CardFooter>
+      <Button onClick={navNetwork}>View All</Button>
+    </CardFooter>
+  </ResponsiveContainer>
+</Card>
 
           <Card>
             <ResponsiveContainer>

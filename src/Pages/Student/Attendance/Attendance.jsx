@@ -25,7 +25,8 @@ const Attendance = () => {
       occupation: "UX Designer",
       connections: 300,
       itemsSold: 250,
-    },{
+    },
+    {
       id: 4,
       name: "John Doe",
       occupation: "Software Engineer",
@@ -49,7 +50,9 @@ const Attendance = () => {
     // Add more connections
   ];
 
-  const [filteredConnections, setFilteredConnections] = useState(initialConnectionData);
+  const [filteredConnections, setFilteredConnections] = useState(
+    initialConnectionData
+  );
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
@@ -70,7 +73,7 @@ const Attendance = () => {
           <input
             type="text"
             placeholder="Search by name"
-            className="border border-gray-300 rounded px-4 py-2 w-full md:w-1/2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="border border-gray-300 rounded px-4 py-2 w-full md:w-1/2 focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-gray-800 text-black dark:text-white"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
@@ -80,7 +83,7 @@ const Attendance = () => {
           {filteredConnections.map((person) => (
             <div
               key={person.id}
-              className="bg-blue rounded-lg overflow-hidden shadow-md p-6 flex flex-col justify-between transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg"
+              className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md p-6 flex flex-col justify-between transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg"
             >
               <div className="flex items-center mb-4">
                 <div
@@ -108,6 +111,7 @@ const Attendance = () => {
                     <div
                       style={{
                         width: `${(person.itemsSold / person.connections) * 100}%`,
+                        backgroundColor: "#3f51b5",
                       }}
                       className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-indigo-500"
                     ></div>
@@ -115,13 +119,12 @@ const Attendance = () => {
                 </div>
               </div>
               <button
-  className="flex items-center text-blue-500 mt-2"
-  onClick={() => alert("Message button clicked")}
->
-  <FiUserPlus className="mr-1" />
-  Message
-</button>
-
+                className="flex items-center text-blue-500 mt-2"
+                onClick={() => alert("Message button clicked")}
+              >
+                <FiUserPlus className="mr-1" />
+                Message
+              </button>
             </div>
           ))}
         </div>
