@@ -120,24 +120,18 @@ const Attendance = () => {
               </div>
               <div className="flex flex-col">
                 <div className="text-white-600 mb-2">
-                  <p>
-                    Connections: {person.connections}
-                  </p>
-                  <p>
-                    Items Sold: {person.itemsSold}
-                  </p>
-                  <p>
-                    Loyalty Points: {person.loyaltyPoints}
-                  </p>
+                  <p>Connections: {person.connections}</p>
+                  <p>Items Sold: {person.itemsSold}</p>
+                  <p>Loyalty Points: {person.loyaltyPoints}</p>
                 </div>
                 <div className="relative w-full">
                   <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-purple-200">
                     <div
                       style={{
                         width: `${(person.itemsSold / person.connections) * 100}%`,
-                        backgroundColor: "#3f51b5",
+                        backgroundColor: "#FF0000", // Red color
                       }}
-                      className="h-full bg-gradient-to-r from-red-500 to-green-400 via-yellow-500"
+                      className="h-full bg-gradient-to-r from-red-500 to-yellow-500" // Red to Yellow gradient
                     ></div>
                   </div>
                 </div>
@@ -145,7 +139,7 @@ const Attendance = () => {
               {(deliveryStatus[person.id] === undefined || deliveryStatus[person.id] === "pending") && (
                 <div className="mt-2">
                   <button
-                    className="flex items-center text-green-500"
+                    className="flex items-center text-blue-500"
                     onClick={() => addDelivery(person.id)}
                   >
                     <FiUserPlus className="mr-1" />
@@ -169,7 +163,6 @@ const Attendance = () => {
                   </button>
                 </div>
               )}
-
             </div>
           ))}
         </div>
