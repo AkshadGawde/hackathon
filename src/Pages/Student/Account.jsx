@@ -4,6 +4,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/Componen
 import { Button } from "@/Components/ui/button";
 import { ResponsiveContainer } from "recharts";
 import Footer from "@/Components/Footer";
+import Nav from "../../Components/Nav";
 
 const Account = () => {
   const navigate = useNavigate();
@@ -75,6 +76,7 @@ const Account = () => {
 
   return (
     <>
+    <Nav />
       <div className="px-4 md:px-12 py-5 w-full">
         <p className="font-bold text-3xl md:text-5xl mx-3 my-5">
           Welcome, {userName}
