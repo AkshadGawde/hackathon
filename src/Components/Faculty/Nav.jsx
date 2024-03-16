@@ -44,21 +44,12 @@ const Nav = () => {
     {
       text: "Dashboard",
       link: "/fac/dashboard",
-    },
-    {
-      text: "Report ",
-      link: "/fac/report",
-    },
-   
-    {
-      text: "",
-      link: "/",
-    },
+    }
   ];
 
   return (
     <nav className="flex flex-row justify-between items-center w-full h-16 px-12 border-b">
-      <div className="text-2xl whitespace-nowrap">Portal</div>
+      <div className="text-2xl whitespace-nowrap">KAST</div>
       <div className="flex flex-row">
         <div className="hidden md:block">
           {navButtons.map((element, index) => (

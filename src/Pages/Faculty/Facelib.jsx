@@ -8,9 +8,8 @@ const Facelib = () => {
   return (
     <div>
       <Nav />
-      <div className="flex flex-col items-center justify-center h-screen">
+      <div className="flex flex-col items-center justify-start my-5 p-5 h-screen">
         <h1 className="text-4xl font-bold mb-8 text-center ">My Dashboard</h1>
-
         <div className="w-full md:w-3/4 lg:w-1/2">
           <Accordion className="mb-4">
             <AccordionSummary
@@ -28,7 +27,7 @@ const Facelib = () => {
                   Order Delivered Date: 32-4-24<br />
                   Issues: lorem ipsum
                 </Typography>
-                <Button variant="contained" color="primary" className="w-full">
+                <Button variant="contained" color="primary" className="w-full mt-2">
                   Report
                 </Button>
               </div>
@@ -51,7 +50,7 @@ const Facelib = () => {
                   Order Delivered Date: 32-4-24<br />
                   Issues: lorem ipsum
                 </Typography>
-                <Button variant="contained" color="primary" className="w-full">
+                <Button variant="contained" color="primary" className="w-full my-2">
                   Report
                 </Button>
               </div>
