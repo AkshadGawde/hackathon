@@ -34,7 +34,7 @@ const newRequests = [
   {
     title: "Milk vendor",
     description: "Need 150 units of Amul doodh",
-  }
+  },
 ];
 
 const newIssues = [
@@ -61,7 +61,7 @@ const newIssues = [
   {
     title: "Vendor 3",
     description: "Pencils broken",
-  }
+  },
 ];
 
 const feedbacks = [
@@ -92,7 +92,7 @@ const feedbacks = [
   {
     title: "Vendor 7",
     description: "Insane delivery time",
-  }
+  },
 ];
 
 const Elibrary = () => {
