@@ -94,26 +94,26 @@ const Attendance = () => {
                 </div>
                 <div>
                   <h2 className="text-lg text-blue-500 font-semibold">{person.name}</h2>
-                  <p className="text-gray-600">{person.occupation}</p>
+                  <p className="text-white-600">{person.occupation}</p>
                 </div>
               </div>  
               <div className="flex justify-between items-center">
                 <div className="flex flex-col">
-                  <p className="text-gray-600">
+                  <p className="text-white-600">
                     Connections: {person.connections}
                   </p>
-                  <p className="text-gray-600">
+                  <p className="text-white-600">
                     Items Sold: {person.itemsSold}
                   </p>
                 </div>
                 <div className="relative w-full">
-                  <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-indigo-200">
+                  <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-purple-200">
                     <div
                       style={{
                         width: `${(person.itemsSold / person.connections) * 100}%`,
                         backgroundColor: "#3f51b5",
                       }}
-                      className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-indigo-500"
+                      className="h-full bg-gradient-to-r from-blue-500 to-green-500 transition-all duration-500 ease-in-out hover:from-yellow-400 hover:to-red-400"
                     ></div>
                   </div>
                 </div>
