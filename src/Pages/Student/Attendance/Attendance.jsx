@@ -8,9 +8,10 @@ const Attendance = () => {
     {
       id: 1,
       name: "John Doe",
-      occupation: "Groceory Store",
+      occupation: "Grocery Store",
       connections: 500,
       itemsSold: 350,
+      loyaltyPoints: 150,
     },
     {
       id: 2,
@@ -18,6 +19,7 @@ const Attendance = () => {
       occupation: "Grocery Store",
       connections: 700,
       itemsSold: 420,
+      loyaltyPoints: 200,
     },
     {
       id: 3,
@@ -25,6 +27,7 @@ const Attendance = () => {
       occupation: "Grocery Store",
       connections: 300,
       itemsSold: 250,
+      loyaltyPoints: 100,
     },
     {
       id: 4,
@@ -32,6 +35,7 @@ const Attendance = () => {
       occupation: "Grocery Store",
       connections: 500,
       itemsSold: 350,
+      loyaltyPoints: 150,
     },
     {
       id: 5,
@@ -39,6 +43,7 @@ const Attendance = () => {
       occupation: "Supper Mart",
       connections: 700,
       itemsSold: 420,
+      loyaltyPoints: 200,
     },
     {
       id: 6,
@@ -46,6 +51,7 @@ const Attendance = () => {
       occupation: "Supper Mart",
       connections: 300,
       itemsSold: 250,
+      loyaltyPoints: 100,
     },
     // Add more connections
   ];
@@ -111,24 +117,21 @@ const Attendance = () => {
                   <h2 className="text-lg text-blue-500 font-semibold">{person.name}</h2>
                   <p className="text-white-600">{person.occupation}</p>
                 </div>
-              </div>  
-              <div className="flex justify-between items-center">
-                <div className="flex flex-col">
-                  <p className="text-white-600">
-                    Connections: {person.connections}
-                  </p>
-                  <p className="text-white-600">
-                    Items Sold: {person.itemsSold}
-                  </p>
+              </div>
+              <div className="flex flex-col">
+                <div className="text-white-600 mb-2">
+                  <p>Connections: {person.connections}</p>
+                  <p>Items Sold: {person.itemsSold}</p>
+                  <p>Loyalty Points: {person.loyaltyPoints}</p>
                 </div>
                 <div className="relative w-full">
                   <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-purple-200">
                     <div
                       style={{
                         width: `${(person.itemsSold / person.connections) * 100}%`,
-                        backgroundColor: "#3f51b5",
+                        backgroundColor: "#FF0000", // Red color
                       }}
-                      className="h-full bg-gradient-to-r from-blue-500 to-green-500 transition-all duration-500 ease-in-out hover:from-yellow-400 hover:to-red-400"
+                      className="h-full bg-gradient-to-r from-red-500 to-yellow-500" // Red to Yellow gradient
                     ></div>
                   </div>
                 </div>
@@ -136,7 +139,7 @@ const Attendance = () => {
               {(deliveryStatus[person.id] === undefined || deliveryStatus[person.id] === "pending") && (
                 <div className="mt-2">
                   <button
-                    className="flex items-center text-green-500"
+                    className="flex items-center text-blue-500"
                     onClick={() => addDelivery(person.id)}
                   >
                     <FiUserPlus className="mr-1" />
@@ -160,7 +163,6 @@ const Attendance = () => {
                   </button>
                 </div>
               )}
-
             </div>
           ))}
         </div>
