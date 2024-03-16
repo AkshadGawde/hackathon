@@ -79,11 +79,9 @@ const Attendance = () => {
   const [isDescending, setIsDescending] = useState(false);
 
   useEffect(() => {
-    // Filter connections based on search query
     const filtered = connectionData.filter((person) =>
       person.name.toLowerCase().includes(searchQuery.toLowerCase())
     );
-    // Sort connections based on sorting criteria
     const sorted = sortConnections(filtered, sortBy, isDescending);
     setFilteredConnections(sorted);
   }, [searchQuery, connectionData, sortBy, isDescending]);
@@ -93,21 +91,17 @@ const Attendance = () => {
     if (sortBy) {
       sortedData.sort((a, b) => {
         if (sortBy === "name") {
-          // Sort by name
           if (a[sortBy] < b[sortBy]) return isDescending ? 1 : -1;
           if (a[sortBy] > b[sortBy]) return isDescending ? -1 : 1;
         } else if (sortBy === "recentlyAdded") {
-          // Sort by ID (recently added)
           if (a.id < b.id) return isDescending ? 1 : -1;
           if (a.id > b.id) return isDescending ? -1 : 1;
         } else if (sortBy === "firstName") {
-          // Sort by first name
           const firstNameA = a.name.split(" ")[0];
           const firstNameB = b.name.split(" ")[0];
           if (firstNameA < firstNameB) return isDescending ? 1 : -1;
           if (firstNameA > firstNameB) return isDescending ? -1 : 1;
         } else if (sortBy === "lastName") {
-          // Sort by last name
           const lastNameA = a.name.split(" ")[1];
           const lastNameB = b.name.split(" ")[1];
           if (lastNameA < lastNameB) return isDescending ? 1 : -1;
@@ -119,101 +113,11 @@ const Attendance = () => {
     return sortedData;
   };
 
-  const handleSortChange = (sortBy) => {
-    if (sortBy === sortBy) {
-      setIsDescending(!isDescending);
-    } else {
-      setSortBy(sortBy);
-      setIsDescending(false);
-    }
-  };
 
   return (
     <>
       <Nav />
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold mb-8 text-center">My Network</h1>
-        {/* Search bar */}
-        <div className="mb-4 flex justify-center items-center">
-          <input
-            type="text"
-            placeholder="Search by name"
-            className="border border-gray-300 rounded px-4 py-2 w-full md:w-1/2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
-        </div>
-        {/* Sort options */}
-        <div className="flex justify-center mb-4">
-          <div className="flex items-center">
-            <span className="mr-2">Sort By:</span>
-            <div className="relative inline-block text-left">
-              <div>
-                <button
-                  type="button"
-                  className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100"
-                >
-                  {sortBy || "Select"}
-                  <IoMdArrowDropdown className="-mr-1 ml-2 h-5 w-5" />
-                </button>
-              </div>
-              <div className="opacity-0 invisible transition-all duration-300 origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                <div
-                  className="py-1"
-                  role="menu"
-                  aria-orientation="vertical"
-                  aria-labelledby="options-menu"
-                >
-                  <button
-                    className="block w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                    onClick={() => handleSortChange("name")}
-                  >
-                    Name
-                  </button>
-                  <button
-                    className="block w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                    onClick={() => handleSortChange("connections")}
-                  >
-                    Connections
-                  </button>
-                  <button
-                    className="block w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                    onClick={() => handleSortChange("itemsSold")}
-                  >
-                    Items Sold
-                  </button>
-                  <button
-                    className="block w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                    onClick={() => handleSortChange("recentlyAdded")}
-                  >
-                    Recently Added
-                  </button>
-                  <button
-                    className="block w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                    onClick={() => handleSortChange("firstName")}
-                  >
-                    First Name
-                  </button>
-                  <button
-                    className="block w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                    onClick={() => handleSortChange("lastName")}
-                  >
-                    Last Name
-                  </button>
-                </div>
-              </div>
-            </div>
-            {sortBy && (
-              <button
-                type="button"
-                className="ml-2 inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                onClick={() => setIsDescending(!isDescending)}
-              >
-                {isDescending ? "Descending" : "Ascending"}
-              </button>
-            )}
-          </div>
-        </div>
+      <div className="container mx-auto px-4 py-3">
         {/* Display connections */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredConnections.map((person) => (
@@ -229,10 +133,10 @@ const Attendance = () => {
                   {person.name[0]}
                 </div>
                 <div>
-                  <h2 className="text-lg font-semibold">{person.name}</h2>
+                  <h2 className="text-lg text-blue-500 font-semibold">{person.name}</h2>
                   <p className="text-gray-600">{person.occupation}</p>
                 </div>
-              </div>
+              </div>  
               <div className="flex justify-between items-center">
                 <div className="flex flex-col">
                   <p className="text-gray-600">
