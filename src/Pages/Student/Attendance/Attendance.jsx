@@ -8,49 +8,53 @@ const Attendance = () => {
     {
       id: 1,
       name: "John Doe",
-      occupation: "Software Engineer",
+      occupation: "Groceory Store",
       connections: 500,
       itemsSold: 350,
     },
     {
       id: 2,
       name: "Jane Smith",
-      occupation: "Data Scientist",
+      occupation: "Grocery Store",
       connections: 700,
       itemsSold: 420,
     },
     {
       id: 3,
       name: "Alex Johnson",
-      occupation: "UX Designer",
+      occupation: "Grocery Store",
       connections: 300,
       itemsSold: 250,
-    },{
+    },
+    {
       id: 4,
       name: "John Doe",
-      occupation: "Software Engineer",
+      occupation: "Grocery Store",
       connections: 500,
       itemsSold: 350,
     },
     {
       id: 5,
       name: "Jane Smith",
-      occupation: "Data Scientist",
+      occupation: "Supper Mart",
       connections: 700,
       itemsSold: 420,
     },
     {
       id: 6,
       name: "Alex Johnson",
-      occupation: "UX Designer",
+      occupation: "Supper Mart",
       connections: 300,
       itemsSold: 250,
     },
     // Add more connections
   ];
 
-  const [filteredConnections, setFilteredConnections] = useState(initialConnectionData);
+  const [filteredConnections, setFilteredConnections] = useState(
+    initialConnectionData
+  );
   const [searchQuery, setSearchQuery] = useState("");
+  const [deliveryStatus, setDeliveryStatus] = useState({});
 
   useEffect(() => {
     // Filter connections based on search query
@@ -59,6 +63,20 @@ const Attendance = () => {
     );
     setFilteredConnections(filtered);
   }, [searchQuery]);
+
+  const addDelivery = (id) => {
+    setDeliveryStatus({ ...deliveryStatus, [id]: "inProgress" });
+  };
+
+  const completeDelivery = (id) => {
+    setDeliveryStatus({ ...deliveryStatus, [id]: "completed" });
+    setDeliveryStatus({});
+  };
+
+  const abortDelivery = (id) => {
+    setDeliveryStatus({ ...deliveryStatus, [id]: "aborted" });
+    setDeliveryStatus({});
+  };
 
   return (
     <>
@@ -70,7 +88,7 @@ const Attendance = () => {
           <input
             type="text"
             placeholder="Search by name"
-            className="border border-gray-300 rounded px-4 py-2 w-full md:w-1/2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="border border-gray-300 rounded px-4 py-2 w-full md:w-1/2 focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-white dark:bg-gray-800 text-black dark:text-white"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
@@ -80,7 +98,7 @@ const Attendance = () => {
           {filteredConnections.map((person) => (
             <div
               key={person.id}
-              className="bg-blue rounded-lg overflow-hidden shadow-md p-6 flex flex-col justify-between transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg"
+              className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-md p-6 flex flex-col justify-between transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg"
             >
               <div className="flex items-center mb-4">
                 <div
@@ -90,38 +108,38 @@ const Attendance = () => {
                   {person.name[0]}
                 </div>
                 <div>
-                  <h2 className="text-lg font-semibold">{person.name}</h2>
-                  <p className="text-gray-600">{person.occupation}</p>
+                  <h2 className="text-lg text-blue-500 font-semibold">{person.name}</h2>
+                  <p className="text-white-600">{person.occupation}</p>
                 </div>
-              </div>
+              </div>  
               <div className="flex justify-between items-center">
                 <div className="flex flex-col">
-                  <p className="text-gray-600">
+                  <p className="text-white-600">
                     Connections: {person.connections}
                   </p>
-                  <p className="text-gray-600">
+                  <p className="text-white-600">
                     Items Sold: {person.itemsSold}
                   </p>
                 </div>
                 <div className="relative w-full">
-                  <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-indigo-200">
+                  <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-purple-200">
                     <div
                       style={{
                         width: `${(person.itemsSold / person.connections) * 100}%`,
+                        backgroundColor: "#3f51b5",
                       }}
-                      className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-indigo-500"
+                      className="h-full bg-gradient-to-r from-blue-500 to-green-500 transition-all duration-500 ease-in-out hover:from-yellow-400 hover:to-red-400"
                     ></div>
                   </div>
                 </div>
               </div>
               <button
-  className="flex items-center text-blue-500 mt-2"
-  onClick={() => alert("Message button clicked")}
->
-  <FiUserPlus className="mr-1" />
-  Message
-</button>
-
+                className="flex items-center text-blue-500 mt-2"
+                onClick={() => alert("Message button clicked")}
+              >
+                <FiUserPlus className="mr-1" />
+                Message
+              </button>
             </div>
           ))}
         </div>

@@ -27,6 +27,14 @@ const newRequests = [
     title: "Milk vendor",
     description: "Need 150 units of amul doodh",
   },
+  {
+    title: "Milk vendor",
+    description: "Need 150 units of amul doodh",
+  },
+  {
+    title: "Milk vendor",
+    description: "Need 150 units of amul doodh",
+  }
 ];
 
 const newIssues = [
@@ -56,6 +64,37 @@ const newIssues = [
   }
 ];
 
+  const feedbacks = [
+    {
+      title : "Vendor 1",
+      description : "insane delivery time"
+    },
+    {
+      title : "Vendor 2",
+      description : "insane delivery time"
+    },
+    {
+      title : "Vendor 3",
+      description : "insane delivery time"
+    },
+    {
+      title : "Vendor 4",
+      description : "insane delivery time"
+    },
+    {
+      title : "Vendor 5",
+      description : "insane delivery time"
+    },
+    {
+      title : "Vendor 6",
+      description : "insane delivery time"
+    },
+    {
+      title : "Vendor 7",
+      description : "insane delivery time"
+    }
+  ]
+
 const Elibrary = () => {
   return (
     <div>
@@ -84,11 +123,12 @@ const Elibrary = () => {
             ))}
           </CardContent>
         </Card>
+
         <Card>
           <CardHeader>
             <CardTitle>Requests</CardTitle>
           </CardHeader>
-          <CardContent>
+          <CardContent className="scrollbar-thin scrollbar-thumb-gray-300 max-h-72 overflow-y-auto">
             {newRequests.map((assignment, index) => (
               <div
                 key={index}
@@ -104,9 +144,32 @@ const Elibrary = () => {
             ))}
           </CardContent>
         </Card>
+
       </div>
+     <div className="grid grid-cols-1 gap-5 m-3">
+        <Card>
+          <CardHeader>
+            <CardTitle>Feedback</CardTitle>
+          </CardHeader>
+          <CardContent>
+            {feedbacks.map((assignment, index) => (
+              <div
+                key={index}
+                className="flex items-center justify-between border-b border-gray-200 pb-2"
+              >
+                <div>
+                  <a className="text-lg font-semibold underline cursor-pointer mb-1">{assignment.title}</a>
+                  <p className="text-sm text-gray-500">
+                    {assignment.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </CardContent>
+        </Card>
+  </div>
       <Footer />
-    </div>
+</div>
   );
 };
 
