@@ -1,162 +1,176 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-} from "recharts";
-import Nav from "@/Components/Nav";
-import Footer from "@/Components/Footer";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/Components/ui/card";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/Components/ui/card";
 import { Button } from "@/Components/ui/button";
+import { ResponsiveContainer } from "recharts";
+import Footer from "@/Components/Footer";
+import Nav from "../../Components/Nav";
 
 const Account = () => {
   const navigate = useNavigate();
 
-  const navAssignments = () => {
-    navigate("/assignments");
+  const navExplore = () => {
+    navigate("/courses");
+  };
+
+  const navAlerts = () => {
+    navigate("/elibrary");
+  };
+
+  const navNetwork = () => {
+    navigate("/attendance");
+  };
+
+  const navHome = () => {
+    navigate("/account");
   };
 
   // Test Content, to be replaced by Data from Firestore
   const userName = "Test User";
   const newAssignments = [
     {
-      title: "OOPJ Lab 7",
-      description: "Due on 29/02/24",
+      title: "Retailer 1",
+      description: "Total Inventory",
     },
     {
-      title: "DBMS Lab 8",
-      description: "Due on 1/03/24",
+      title: "Retailer 2",
+      description: "Total Inventory",
     },
     {
-      title: "WP Assignment 2",
-      description: "Due on 3/03/24",
+      title: "Retailer 3",
+      description: "Total Inventory",
     },
   ];
 
-  const data = [
+  const newIssues = [
     {
-      name: "Submitted",
-      assignments: 10,
+      title: "Retailer 4",
+      description: "Late Delivery",
     },
     {
-      name: "Submitted Late",
-      assignments: 1,
-    },
-    {
-      name: "Pending",
-      assignments: 5,
-    },
-    {
-      name: "Past Due",
-      assignments: 2,
+      title: "Retailer 5",
+      description: "Faulty Pieces",
     },
   ];
 
-  const attendance = [
+  const newRequests = [
     {
-      subName: "DBMS",
-      attended: 12,
-      notAttended: 5,
+      title: "Toothpaste vendor",
+      description: "Need 200 units of colgate",
     },
     {
-      subName: "OOPJ",
-      attended: 12,
-      notAttended: 2,
+      title: "Battery vendor",
+      description: "Need 394 units of duracell",
     },
     {
-      subName: "CVT",
-      attended: 20,
-      notAttended: 5,
+      title: "Stationary vendor",
+      description: "Need 250 units of doms pencil",
     },
     {
-      subName: "COA",
-      attended: 20,
-      notAttended: 3,
+      title: "Milk vendor",
+      description: "Need 150 units of amul doodh",
     },
   ];
+
+  const progress = 70;
 
   return (
     <>
-      <Nav />
+    <Nav />
       <div className="px-4 md:px-12 py-5 w-full">
         <p className="font-bold text-3xl md:text-5xl mx-3 my-5">
           Welcome, {userName}
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           <Card>
-            <CardHeader>
-              <CardTitle>New Assignments</CardTitle>
-            </CardHeader>
-            <CardContent className="grid gap-4">
-              {newAssignments.map((assignment, index) => (
-                <div
-                  key={index}
-                  className="flex items-center justify-between border-b border-gray-200 pb-2"
-                >
-                  <div>
-                    <p className="text-lg font-semibold">{assignment.title}</p>
-                    <p className="text-sm text-gray-500">
-                      {assignment.description}
-                    </p>
+            <ResponsiveContainer>
+              <CardHeader>
+                <CardTitle>Retailers</CardTitle>
+              </CardHeader>
+              <CardContent className="grid gap-4">
+                {newAssignments.map((assignment, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center justify-between border-b border-gray-200 pb-2"
+                  >
+                    <div>
+                      <p className="text-lg font-semibold">
+                        {assignment.title}
+                      </p>
+                      <p className="text-sm text-gray-500">
+                        {assignment.description}
+                      </p>
+                    </div>
+                    {/* Progress Bar */}
+                    <div className="w-1/2 h-3 bg-gray-200 rounded-full overflow-hidden">
+                      <div
+                        className="h-full bg-blue-500"
+                        style={{ width: `${progress}%` }}
+                      ></div>
+                    </div>
                   </div>
-                  <div className="flex-shrink-0 h-3 w-3 rounded-full bg-green-500"></div>
-                </div>
-              ))}
-            </CardContent>
-            <CardFooter>
-              <Button onClick={navAssignments}>View All</Button>
-            </CardFooter>
+                ))}
+              </CardContent>
+              <CardFooter>
+                <Button onClick={navNetwork}>View All</Button>
+              </CardFooter>
+            </ResponsiveContainer>
           </Card>
+
           <Card>
-            <CardHeader>
-              <CardTitle>Assignment Summary</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ResponsiveContainer width="100%" height={300}>
-                <BarChart
-                  data={data}
-                  margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
-                >
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="name" />
-                  <YAxis />
-                  <Tooltip cursor={false}/>
-                  <Bar dataKey="assignments" fill="#3f88c5" />
-                </BarChart>
-              </ResponsiveContainer>
-            </CardContent>
+            <ResponsiveContainer>
+              <CardHeader>
+                <CardTitle>Complaints</CardTitle>
+              </CardHeader>
+              <CardContent className="grid gap-4">
+                {newIssues.map((assignment, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center justify-between border-b border-gray-200 pb-2"
+                  >
+                    <div>
+                      <p className="text-lg font-semibold">
+                        {assignment.title}
+                      </p>
+                      <p className="text-sm text-gray-500">
+                        {assignment.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </CardContent>
+              <CardFooter>
+                <Button onClick={navAlerts}>View All</Button>
+              </CardFooter>
+            </ResponsiveContainer>
           </Card>
+
           <Card>
-            <CardHeader>
-              <CardTitle>Attendance Summary</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ResponsiveContainer width="100%" height={300}>
-                <BarChart
-                  data={attendance}
-                  layout="vertical"
-                  margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
-                >
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis type="number" />
-                  <YAxis dataKey="subName" type="category" />
-                  <Tooltip cursor={false}/>
-                  <Bar dataKey="attended" stackId="a" fill="#65b88f" />
-                  <Bar dataKey="notAttended" stackId="a" fill="#ffaf5c" />
-                </BarChart>
-              </ResponsiveContainer>
-            </CardContent>
+            <ResponsiveContainer>
+              <CardHeader>
+                <CardTitle>Requests</CardTitle>
+              </CardHeader>
+              <CardContent className="grid gap-4">
+                {newRequests.map((assignment, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center justify-between border-b border-gray-200 pb-2"
+                  >
+                    <div>
+                      <p className="text-lg font-semibold">
+                        {assignment.title}
+                      </p>
+                      <p className="text-sm text-gray-500">
+                        {assignment.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </CardContent>
+              <CardFooter>
+                <Button onClick={navAlerts}>View All</Button>
+              </CardFooter>
+            </ResponsiveContainer>
           </Card>
         </div>
       </div>
