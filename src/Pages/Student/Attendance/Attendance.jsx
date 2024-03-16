@@ -51,6 +51,7 @@ const Attendance = () => {
 
   const [filteredConnections, setFilteredConnections] = useState(initialConnectionData);
   const [searchQuery, setSearchQuery] = useState("");
+  const [deliveryStatus, setDeliveryStatus] = useState({});
 
   useEffect(() => {
     // Filter connections based on search query
@@ -59,6 +60,20 @@ const Attendance = () => {
     );
     setFilteredConnections(filtered);
   }, [searchQuery]);
+
+  const addDelivery = (id) => {
+    setDeliveryStatus({ ...deliveryStatus, [id]: "inProgress" });
+  };
+
+  const completeDelivery = (id) => {
+    setDeliveryStatus({ ...deliveryStatus, [id]: "completed" });
+    setDeliveryStatus({});
+  };
+
+  const abortDelivery = (id) => {
+    setDeliveryStatus({ ...deliveryStatus, [id]: "aborted" });
+    setDeliveryStatus({});
+  };
 
   return (
     <>
@@ -91,15 +106,15 @@ const Attendance = () => {
                 </div>
                 <div>
                   <h2 className="text-lg text-blue-500 font-semibold">{person.name}</h2>
-                  <p className="text-gray-600">{person.occupation}</p>
+                  <p className="text-blue-600">{person.occupation}</p>
                 </div>
               </div>  
               <div className="flex justify-between items-center">
                 <div className="flex flex-col">
-                  <p className="text-gray-600">
+                  <p className="text-blue-600">
                     Connections: {person.connections}
                   </p>
-                  <p className="text-gray-600">
+                  <p className="text-blue-600">
                     Items Sold: {person.itemsSold}
                   </p>
                 </div>
@@ -114,14 +129,33 @@ const Attendance = () => {
                   </div>
                 </div>
               </div>
-              <button
-  className="flex items-center text-blue-500 mt-2"
-  onClick={() => alert("Message button clicked")}
->
-  <FiUserPlus className="mr-1" />
-  Message
-</button>
-
+              {(deliveryStatus[person.id] === undefined || deliveryStatus[person.id] === "pending") && (
+                <div className="mt-2">
+                  <button
+                    className="flex items-center text-green-500"
+                    onClick={() => addDelivery(person.id)}
+                  >
+                    <FiUserPlus className="mr-1" />
+                    Add Delivery
+                  </button>
+                </div>
+              )}
+              {deliveryStatus[person.id] === "inProgress" && (
+                <div className="mt-2">
+                  <button
+                    className="bg-green-500 text-white px-3 py-1 rounded-md mr-2"
+                    onClick={() => completeDelivery(person.id)}
+                  >
+                    Complete Delivery
+                  </button>
+                  <button
+                    className="bg-red-500 text-white px-3 py-1 rounded-md"
+                    onClick={() => abortDelivery(person.id)}
+                  >
+                    Abort Delivery
+                  </button>
+                </div>
+              )}
             </div>
           ))}
         </div>

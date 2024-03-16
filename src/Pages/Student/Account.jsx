@@ -5,6 +5,7 @@ import { Button } from "@/Components/ui/button";
 import { ResponsiveContainer } from "recharts";
 import Footer from "@/Components/Footer";
 import Nav from "../../Components/Nav";
+import FeedbackForm from "./FeedbackForm";
 
 const Account = () => {
   const navigate = useNavigate();
@@ -174,6 +175,7 @@ const Account = () => {
           </Card>
         </div>
       </div>
+      <FeedbackForm/>
       <Footer />
     </>
   );
