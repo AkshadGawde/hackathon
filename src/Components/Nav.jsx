@@ -41,21 +41,14 @@ const Nav = () => {
       link: "/account",
     },
     {
-      text: "Attendance",
+      text: "My Network",
       link: "/attendance",
     },
     {
-      text: "Courses",
+      text: "Explore",
       link: "/courses",
     },
-    {
-      text: "Assignments",
-      link: "/assignments",
-    },
-    {
-      text: "E-Library",
-      link: "/elibrary",
-    },
+   
   ];
 
   return (

@@ -16,46 +16,6 @@ const Courses = () => {
       description: "Bachelor of Technology in Computer Engineering",
     },
 
-    {
-      title: "BTech IT",
-      description: "MBA Tech in Computer Engineering",
-    },
-
-    {
-      title: "Btech AI",
-      description:
-        "Bachelor of Technology in Artificial Intelligence and Data Science",
-    },
-
-    {
-      title: "MBAtech CE",
-      description:
-        "Masters of Business Administration & Bachelor of Technology in Computer Engineering",
-    },
-
-    {
-      title: "MBAtech AIDS",
-      description:
-        "Masters of Business Administration & Bachelor of Technology in Artificial Intelligence and Data Science",
-    },
-
-    {
-      title: "MBAtech AI",
-      description:
-        "Masters of Business Administration & Bachelor of Technology in Computer Engineering",
-    },
-
-    {
-      title: "MBAtech IT",
-      description:
-        "Masters of Business Administration & Bachelor of Technology in Artificial Intelligence and Data Science",
-    },
-
-    {
-      title: "Btech CE",
-      description:
-        "Masters of Business Administration & Bachelor of Technology in Computer Engineering",
-    },
   ];
 
   return (
