@@ -60,7 +60,7 @@ function App() {
               }
             />
              <Route
-              path="/fac/e-library"
+              path="/fac/dashboard"
               element={
                 <ProtectedRoutesByType>
                   <Facelib />
