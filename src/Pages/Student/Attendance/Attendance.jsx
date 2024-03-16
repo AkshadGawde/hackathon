@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom"; // Importing useNavigate hook
 import Nav from "../../../Components/Nav";
 import Footer from "../../../Components/Footer";
 import { FiUserPlus } from "react-icons/fi";
 
 const Attendance = () => {
+  const navigate = useNavigate(); // Initializing the navigate function
+
   const initialConnectionData = [
     {
       id: 1,
       name: "John Doe",
-      occupation: "Groceory Store",
+      occupation: "Grocery Store",
       connections: 500,
       itemsSold: 350,
     },
@@ -70,12 +73,12 @@ const Attendance = () => {
 
   const completeDelivery = (id) => {
     setDeliveryStatus({ ...deliveryStatus, [id]: "completed" });
-    setDeliveryStatus({});
+    navigate("/feedback"); // Navigating to the "/feedback" route
   };
 
   const abortDelivery = (id) => {
     setDeliveryStatus({ ...deliveryStatus, [id]: "aborted" });
-    setDeliveryStatus({});
+    navigate("/feedback"); // Navigating to the "/feedback" route
   };
 
   return (
@@ -160,7 +163,6 @@ const Attendance = () => {
                   </button>
                 </div>
               )}
-
             </div>
           ))}
         </div>
