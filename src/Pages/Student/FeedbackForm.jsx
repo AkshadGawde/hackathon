@@ -3,18 +3,20 @@ import { useForm } from 'react-hook-form'
 import { useNavigate } from "react-router-dom";
 const FeedbackForm = () => {
   const { register, handleSubmit } = useForm();
-  const navigate = useNavigate(); // Initialize the navigate function
+  const navigate = useNavigate(); 
 
   const onSubmit = (data) => {
       console.log(data);
-      navigate("/attendance"); // Navigating to the "/feedback" route
+      navigate("/attendance"); 
   };
 
     return (
-        <div className="border border-gray-300 max-w-sm mx-auto mt-8 p-8"> {/* Add border to the whole page */}
-            <form onSubmit={handleSubmit(onSubmit)} className="text-gray-800">
+        <div className="border border-gray-300 max-w-sm mx-auto mt-8 p-5 pb-0 mb-5"> {/* Add border to the whole page */}
+            <form onSubmit={handleSubmit(onSubmit)} className="">
+                
+
                 <div className="mb-4">
-                    <label htmlFor="rating" className="text-sm text-gray-500">
+                    <label htmlFor="rating" className="text-sm ">
                         Rating (out of 5)
                     </label>
                     <input
@@ -22,23 +24,25 @@ const FeedbackForm = () => {
                         id="rating"
                         name="rating"
                         {...register("rating")}
-                        className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+                        className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline text-black placeholder-black"
                     />
                 </div>
+
                 <div className="mb-4">
-                    <label htmlFor="feedback" className="block font-bold mb-2 text-gray-500">
+                    <label htmlFor="feedback" className="block font-bold mb-2 ">
                         Feedback
                     </label>
                     <textarea
                         id="feedback"
                         name="feedback"
                         {...register("feedback")}
-                        className="shadow appearance-none border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline"
+                        className="shadow appearance-none border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline text-black placeholder-black"
                     ></textarea>
                 </div>
                 <div className="mb-4">
-    <p className="block font-bold mb-2 text-gray-500">Issues</p>
-    <label className="inline-flex items-center mb-2">
+    <p className="block font-bold mb-2 ">Issues</p>
+
+    <label className="flex items-center mb-2">
         <input
             type="checkbox"
             name="issues"
@@ -46,9 +50,10 @@ const FeedbackForm = () => {
             {...register("issues")}
             className="form-checkbox text-indigo-600 h-5 w-5"
         />
-        <span className="ml-2 text-sm text-gray-800">Defective Product</span>
+        <span className="ml-2 text-sm ">Defective Product</span>
     </label>
-    <label className="inline-flex items-center mb-2">
+
+    <label className="flex items-center mb-2">
         <input
             type="checkbox"
             name="issues"
@@ -56,9 +61,10 @@ const FeedbackForm = () => {
             {...register("issues")}
             className="form-checkbox text-indigo-600 h-5 w-5"
         />
-        <span className="ml-2 text-sm text-gray-800">Delivery Late / Issue in delivery</span>
+        <span className="ml-2 text-sm ">Delivery Late / Issue in delivery</span>
     </label>
-    <label className="inline-flex items-center mb-2">
+
+    <label className="flex items-center mb-2">
         <input
             type="checkbox"
             name="issues"
@@ -66,9 +72,10 @@ const FeedbackForm = () => {
             {...register("issues")}
             className="form-checkbox text-indigo-600 h-5 w-5"
         />
-        <span className="ml-2 text-sm text-gray-800">High Price</span>
+        <span className="ml-2 text-sm ">High Price</span>
     </label>
-    <label className="inline-flex items-center mb-2">
+
+    <label className="flex items-center mb-2">
         <input
             type="checkbox"
             name="issues"
@@ -76,7 +83,7 @@ const FeedbackForm = () => {
             {...register("issues")}
             className="form-checkbox text-indigo-600 h-5 w-5"
         />
-        <span className="ml-2 text-sm text-gray-800">Products Missing</span>
+        <span className="ml-2 text-sm ">Products Missing</span>
     </label>
 </div>
 
