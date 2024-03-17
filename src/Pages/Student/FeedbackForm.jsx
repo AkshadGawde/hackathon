@@ -1,16 +1,18 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
-
+import { useNavigate } from "react-router-dom";
 const FeedbackForm = () => {
-    const { register, handleSubmit } = useForm();
+  const { register, handleSubmit } = useForm();
+  const navigate = useNavigate(); // Initialize the navigate function
 
-    const onSubmit = (data) => {
-        console.log(data);
-    }
+  const onSubmit = (data) => {
+      console.log(data);
+      navigate("/attendance"); // Navigating to the "/feedback" route
+  };
 
     return (
-        <div className="border border-gray-300 max-w-sm mx-auto mt-8 p-8 rounded-lg"> {/* Add rounded borders */}
-            <form onSubmit={handleSubmit(onSubmit)} className="text-gray-500">
+        <div className="border border-gray-300 max-w-sm mx-auto mt-8 p-8"> {/* Add border to the whole page */}
+            <form onSubmit={handleSubmit(onSubmit)} className="text-gray-800">
                 <div className="mb-4">
                     <label htmlFor="rating" className="text-sm text-gray-500">
                         Rating (out of 5)
@@ -44,7 +46,7 @@ const FeedbackForm = () => {
             {...register("issues")}
             className="form-checkbox text-indigo-600 h-5 w-5"
         />
-        <span className="ml-2 text-sm text-gray-500">Defective Product</span>
+        <span className="ml-2 text-sm text-gray-800">Defective Product</span>
     </label>
     <label className="inline-flex items-center mb-2">
         <input
@@ -54,7 +56,7 @@ const FeedbackForm = () => {
             {...register("issues")}
             className="form-checkbox text-indigo-600 h-5 w-5"
         />
-        <span className="ml-2 text-sm text-gray-500">Delivery Late / Issue in delivery</span>
+        <span className="ml-2 text-sm text-gray-800">Delivery Late / Issue in delivery</span>
     </label>
     <label className="inline-flex items-center mb-2">
         <input
@@ -64,7 +66,7 @@ const FeedbackForm = () => {
             {...register("issues")}
             className="form-checkbox text-indigo-600 h-5 w-5"
         />
-        <span className="ml-2 text-sm text-gray-500">High Price</span>
+        <span className="ml-2 text-sm text-gray-800">High Price</span>
     </label>
     <label className="inline-flex items-center mb-2">
         <input
@@ -74,7 +76,7 @@ const FeedbackForm = () => {
             {...register("issues")}
             className="form-checkbox text-indigo-600 h-5 w-5"
         />
-        <span className="ml-2 text-sm text-gray-500">Products Missing</span>
+        <span className="ml-2 text-sm text-gray-800">Products Missing</span>
     </label>
 </div>
 
@@ -82,7 +84,7 @@ const FeedbackForm = () => {
                     <button
                         type="submit"
                         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                    >
+                        >
                         Submit Feedback
                     </button>
                 </div>
