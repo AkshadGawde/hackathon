@@ -20,6 +20,7 @@ import Facelib from "./Pages/Faculty/Facelib";
 import Facassign from "./Pages/Faculty/FacAssign";
 import Facattendance from "./Pages/Faculty/FacAttendance";
 import Faccontact from "./Pages/Faculty/FacContact";
+import FeedbackForm from "./Pages/Student/FeedbackForm";
 import FacProfile from "./Components/Faculty/FacProfile";
 function App() {
   return (
@@ -48,6 +49,8 @@ function App() {
             <Route path="/assignments" element={<Assignments />} />
 
             <Route path="/profile" element={<Profile/>}/>
+            
+            <Route path="/feedback" element={<FeedbackForm/>}/>
 
 
 
