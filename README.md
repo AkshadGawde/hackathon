@@ -30,5 +30,3 @@ or
 http://localhost:5173/fac/home
 ```
 in searchbar
-
-![image](https://github.com/AkshadGawde/hackathon/assets/140951916/96be9328-1a03-4b67-bdb8-a785ec91295c)
