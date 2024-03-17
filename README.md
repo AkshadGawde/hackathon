@@ -1,4 +1,4 @@
-Clone
+![image](https://github.com/AkshadGawde/hackathon/assets/140951916/71914688-1729-479b-8c1e-eded9a805834)Clone
 ```bash
 git clone https://github.com/AkshadGawde/hackathon.git
 ```
@@ -21,3 +21,14 @@ or
 ```bash
 npm run dev
 ```
+To Avoid auth paste
+```bash
+http://localhost:5173/account
+```
+or
+```bash
+http://localhost:5173/fac/home
+```
+in searchbar
+
+![image](https://github.com/AkshadGawde/hackathon/assets/140951916/96be9328-1a03-4b67-bdb8-a785ec91295c)
