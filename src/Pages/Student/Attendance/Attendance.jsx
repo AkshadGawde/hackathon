@@ -133,9 +133,9 @@ const Attendance = () => {
                     <div
                       style={{
                         width: `${(person.itemsSold / person.connections) * 100}%`,
-                        backgroundColor: "#FF0000", // Red color
+                        backgroundColor: "green", // Red color
                       }}
-                      className="h-full bg-gradient-to-r from-red-500 to-yellow-500" // Red to Yellow gradient
+                      className="h-full " // Red to Yellow gradient
                     ></div>
                   </div>
                 </div>
