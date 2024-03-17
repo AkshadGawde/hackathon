@@ -44,16 +44,7 @@ const Nav = () => {
     {
       text: "Dashboard",
       link: "/fac/dashboard",
-    },
-    {
-      text: "Report ",
-      link: "/fac/report",
-    },
-   
-    {
-      text: "",
-      link: "/",
-    },
+    }
   ];
 
   return (
@@ -83,7 +74,7 @@ const Nav = () => {
             <DropdownMenuContent>
               <DropdownMenuLabel>My Account</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={() => navigate("/FacProfile")}>
+              <DropdownMenuItem onClick={() => navigate("/Fac/Profile")}>
                 Profile
               </DropdownMenuItem>
               <DropdownMenuItem onClick={handleLogout}>Logout</DropdownMenuItem>
