@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom"; // Importing useNavigate hook
 import Nav from "../../../Components/Nav";
 import Footer from "../../../Components/Footer";
 import { FiUserPlus } from "react-icons/fi";
 
 const Attendance = () => {
+  const navigate = useNavigate(); // Initializing the navigate function
+
   const initialConnectionData = [
     {
       id: 1,
       name: "John Doe",
-      occupation: "Groceory Store",
+      occupation: "Grocery Store",
       connections: 500,
       itemsSold: 350,
+      loyaltyPoints: 150,
     },
     {
       id: 2,
@@ -18,6 +22,7 @@ const Attendance = () => {
       occupation: "Grocery Store",
       connections: 700,
       itemsSold: 420,
+      loyaltyPoints: 200,
     },
     {
       id: 3,
@@ -25,6 +30,7 @@ const Attendance = () => {
       occupation: "Grocery Store",
       connections: 300,
       itemsSold: 250,
+      loyaltyPoints: 100,
     },
     {
       id: 4,
@@ -32,6 +38,7 @@ const Attendance = () => {
       occupation: "Grocery Store",
       connections: 500,
       itemsSold: 350,
+      loyaltyPoints: 150,
     },
     {
       id: 5,
@@ -39,6 +46,7 @@ const Attendance = () => {
       occupation: "Supper Mart",
       connections: 700,
       itemsSold: 420,
+      loyaltyPoints: 200,
     },
     {
       id: 6,
@@ -46,6 +54,7 @@ const Attendance = () => {
       occupation: "Supper Mart",
       connections: 300,
       itemsSold: 250,
+      loyaltyPoints: 100,
     },
     // Add more connections
   ];
@@ -70,12 +79,13 @@ const Attendance = () => {
 
   const completeDelivery = (id) => {
     setDeliveryStatus({ ...deliveryStatus, [id]: "completed" });
-    setDeliveryStatus({});
+    navigate("/feedback"); // Navigating to the "/feedback" route
   };
 
   const abortDelivery = (id) => {
     setDeliveryStatus({ ...deliveryStatus, [id]: "aborted" });
     setDeliveryStatus({});
+    alert("sorry")
   };
 
   return (
@@ -84,7 +94,7 @@ const Attendance = () => {
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold mb-8 text-center">My Network</h1>
         {/* Search bar */}
-        <div className="mb-4 flex justify-center items-center">
+        <div className="mb-6 flex justify-center items-center">
           <input
             type="text"
             placeholder="Search by name"
@@ -111,35 +121,52 @@ const Attendance = () => {
                   <h2 className="text-lg text-blue-500 font-semibold">{person.name}</h2>
                   <p className="text-white-600">{person.occupation}</p>
                 </div>
-              </div>  
-              <div className="flex justify-between items-center">
-                <div className="flex flex-col">
-                  <p className="text-white-600">
-                    Connections: {person.connections}
-                  </p>
-                  <p className="text-white-600">
-                    Items Sold: {person.itemsSold}
-                  </p>
+              </div>
+              <div className="flex flex-col">
+                <div className="text-white-600 mb-2">
+                  <p>Connections: {person.connections}</p>
+                  <p>Items Sold: {person.itemsSold}</p>
+                  <p>Loyalty Points: {person.loyaltyPoints}</p>
                 </div>
                 <div className="relative w-full">
                   <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-purple-200">
                     <div
                       style={{
                         width: `${(person.itemsSold / person.connections) * 100}%`,
-                        backgroundColor: "#3f51b5",
+                        backgroundColor: "#FF0000", // Red color
                       }}
-                      className="h-full bg-gradient-to-r from-blue-500 to-green-500 transition-all duration-500 ease-in-out hover:from-yellow-400 hover:to-red-400"
+                      className="h-full bg-gradient-to-r from-red-500 to-yellow-500" // Red to Yellow gradient
                     ></div>
                   </div>
                 </div>
               </div>
-              <button
-                className="flex items-center text-blue-500 mt-2"
-                onClick={() => alert("Message button clicked")}
-              >
-                <FiUserPlus className="mr-1" />
-                Message
-              </button>
+              {(deliveryStatus[person.id] === undefined || deliveryStatus[person.id] === "pending") && (
+                <div className="mt-2">
+                  <button
+                    className="flex items-center text-blue-500"
+                    onClick={() => addDelivery(person.id)}
+                  >
+                    <FiUserPlus className="mr-1" />
+                    Add Delivery
+                  </button>
+                </div>
+              )}
+              {deliveryStatus[person.id] === "inProgress" && (
+                <div className="mt-2">
+                  <button
+                    className="bg-green-500 text-white px-3 py-1 rounded-md mr-2"
+                    onClick={() => completeDelivery(person.id)}
+                  >
+                    Complete Delivery
+                  </button>
+                  <button
+                    className="bg-red-500 text-white px-3 py-1 rounded-md"
+                    onClick={() => abortDelivery(person.id)}
+                  >
+                    Abort Delivery
+                  </button>
+                </div>
+              )}
             </div>
           ))}
         </div>

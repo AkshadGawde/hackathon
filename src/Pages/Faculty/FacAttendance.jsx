@@ -1,9 +1,11 @@
 import React from 'react'
 
-const Facattendance = () => {
+const FacAttendance = () => {
   return (
-    <div>Facattendance</div>
+    <div>
+      
+    </div>
   )
 }
 
-export default Facattendance
+export default FacAttendance

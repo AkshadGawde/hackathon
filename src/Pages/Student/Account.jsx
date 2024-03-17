@@ -5,7 +5,7 @@ import { Button } from "@/Components/ui/button";
 import { ResponsiveContainer } from "recharts";
 import Footer from "@/Components/Footer";
 import Nav from "../../Components/Nav";
-import FeedbackForm from "./FeedbackForm";
+
 
 const Account = () => {
   const navigate = useNavigate();
@@ -100,10 +100,10 @@ const Account = () => {
           </div>
           {/* Progress Bar */}
           <div className="w-1/2 h-3 bg-gray-200 rounded-full overflow-hidden">
-            <div
-              className="h-full bg-gradient-to-r from-blue-500 to-green-500 transition-all duration-500 ease-in-out hover:from-yellow-400 hover:to-red-400"
-              style={{ width: `${progress}%` }}
-            ></div>
+          <div
+  className={`h-full bg-gradient-to-r from-red-500 to-green-500 via-yellow-300`}
+  style={{ width: `${progress}%` }}
+></div>
           </div>
         </div>
       ))}
@@ -171,7 +171,7 @@ const Account = () => {
           </Card>
         </div>
       </div>
-      <FeedbackForm/>
+     
       <Footer />
     </>
   );

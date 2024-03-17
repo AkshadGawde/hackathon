@@ -20,6 +20,8 @@ import Facelib from "./Pages/Faculty/Facelib";
 import Facassign from "./Pages/Faculty/FacAssign";
 import Facattendance from "./Pages/Faculty/FacAttendance";
 import Faccontact from "./Pages/Faculty/FacContact";
+import FeedbackForm from "./Pages/Student/FeedbackForm";
+import FacProfile from "./Components/Faculty/FacProfile";
 function App() {
   return (
     <>
@@ -47,6 +49,8 @@ function App() {
             <Route path="/assignments" element={<Assignments />} />
 
             <Route path="/profile" element={<Profile/>}/>
+            
+            <Route path="/feedback" element={<FeedbackForm/>}/>
 
 
 
@@ -60,7 +64,7 @@ function App() {
               }
             />
              <Route
-              path="/fac/e-library"
+              path="/fac/dashboard"
               element={
                 <ProtectedRoutesByType>
                   <Facelib />
@@ -88,6 +92,14 @@ function App() {
               element={
                 <ProtectedRoutesByType>
                   <Faccontact />
+                </ProtectedRoutesByType>
+              }
+            />
+             <Route
+              path="/Fac/Profile"
+              element={
+                <ProtectedRoutesByType>
+                  <FacProfile />
                 </ProtectedRoutesByType>
               }
             />
