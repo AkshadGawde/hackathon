@@ -7,8 +7,9 @@ const FeedbackForm = () => {
 
   const onSubmit = (data) => {
       console.log(data);
-      navigate("/attendance"); 
+      navigate("/attendance");
   };
+
 
     return (
         <div className="border border-gray-300 max-w-sm mx-auto mt-8 p-5 pb-0 mb-5"> {/* Add border to the whole page */}
