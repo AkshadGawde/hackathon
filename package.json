@@ -28,6 +28,7 @@
     "clsx": "^2.1.0",
     "dotenv": "^16.4.4",
     "embla-carousel-react": "^8.0.0-rc23",
+    "express": "^4.18.3",
     "firebase": "^10.8.0",
     "google-map-react": "^2.2.1",
     "install": "^0.13.0",
