@@ -87,13 +87,13 @@ const Signup = () => {
         <Card className="w-[350px] z-20">
           <CardHeader>
             <CardTitle>Sign Up</CardTitle>
-            <CardDescription>Welcome to NMIMS University </CardDescription>
+            <CardDescription>Welcome to KAST app</CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit}>
               <div className="grid w-full items-center gap-4">
                 <div className="flex flex-col space-y-1.5">
-                  <Label htmlFor="email">Email Adress</Label>
+                  <Label htmlFor="email">Email Address</Label>
                   <Input
                     id="email"
                     placeholder={placeholder.email}
@@ -116,7 +116,7 @@ const Signup = () => {
                   />
                 </div>
             <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="course">Course</Label>
+              <Label htmlFor="course">Role</Label>
               <Input type="course" id="password"  placeholder="uppercase"  onChange={(e) =>setCourse(e.target.value)}/>
 
             </div>

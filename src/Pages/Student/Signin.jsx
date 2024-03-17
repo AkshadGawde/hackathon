@@ -77,7 +77,7 @@ const Signin = () => {
         <Card className="w-[350px] z-20">
           <CardHeader>
             <CardTitle>Sign In</CardTitle>
-            <CardDescription>Welcome to NMIMS University </CardDescription>
+            <CardDescription>Welcome to KAST app</CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit}>
@@ -91,7 +91,7 @@ const Signin = () => {
                   <Input type="password" id="password" placeholder={placeholder.password} onBlur={() => setPlaceholder({ email: "", password: "" })} onClick={() => setPlaceholder({ password: "••••••••" })} onChange={(e) => setPassword(e.target.value)} />
                 </div>
                 <div className="flex flex-col space-y-1.5">
-                  <Label htmlFor="course">Course</Label>
+                  <Label htmlFor="course">Role</Label>
                   <Input type="course" id="course" placeholder={placeholder.course} onBlur={() => setPlaceholder({ email: "", password: "" })} onClick={() => setPlaceholder({ password: "BTECH" })} onChange={(e) => setCourse(e.target.value)} />
                 </div>
               </div>
