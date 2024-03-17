@@ -20,6 +20,7 @@ import Facelib from "./Pages/Faculty/Facelib";
 import Facassign from "./Pages/Faculty/FacAssign";
 import Facattendance from "./Pages/Faculty/FacAttendance";
 import Faccontact from "./Pages/Faculty/FacContact";
+import FacProfile from "./Components/Faculty/FacProfile";
 function App() {
   return (
     <>
@@ -88,6 +89,14 @@ function App() {
               element={
                 <ProtectedRoutesByType>
                   <Faccontact />
+                </ProtectedRoutesByType>
+              }
+            />
+             <Route
+              path="/Fac/Profile"
+              element={
+                <ProtectedRoutesByType>
+                  <FacProfile />
                 </ProtectedRoutesByType>
               }
             />
