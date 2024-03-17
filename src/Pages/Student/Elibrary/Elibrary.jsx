@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Nav from "../../../Components/Nav";
 import Footer from "../../../Components/Footer";
 import { Button } from "@material-tailwind/react";
@@ -10,92 +10,98 @@ import {
   CardTitle,
 } from "@/Components/ui/card";
 
-const newRequests = [
-  {
-    title: "Toothpaste vendor",
-    description: "Need 200 units of Colgate",
-  },
-  {
-    title: "Battery vendor",
-    description: "Need 394 units of Duracell",
-  },
-  {
-    title: "Stationery vendor",
-    description: "Need 250 units of Doms pencil",
-  },
-  {
-    title: "Milk vendor",
-    description: "Need 150 units of Amul doodh",
-  },
-  {
-    title: "Milk vendor",
-    description: "Need 150 units of Amul doodh",
-  },
-  {
-    title: "Milk vendor",
-    description: "Need 150 units of Amul doodh",
-  }
-];
-
-const newIssues = [
-  {
-    title: "Vendor 1",
-    description: "Toothpaste bottles have faulty labeling",
-  },
-  {
-    title: "Vendor 2",
-    description: "Leaked Batteries",
-  },
-  {
-    title: "Vendor 3",
-    description: "Pencils broken",
-  },
-  {
-    title: "Vendor 3",
-    description: "Pencils broken",
-  },
-  {
-    title: "Vendor 3",
-    description: "Pencils broken",
-  },
-  {
-    title: "Vendor 3",
-    description: "Pencils broken",
-  }
-];
-
-const feedbacks = [
-  {
-    title: "Vendor 1",
-    description: "Insane delivery time",
-  },
-  {
-    title: "Vendor 2",
-    description: "Insane delivery time",
-  },
-  {
-    title: "Vendor 3",
-    description: "Insane delivery time",
-  },
-  {
-    title: "Vendor 4",
-    description: "Insane delivery time",
-  },
-  {
-    title: "Vendor 5",
-    description: "Insane delivery time",
-  },
-  {
-    title: "Vendor 6",
-    description: "Insane delivery time",
-  },
-  {
-    title: "Vendor 7",
-    description: "Insane delivery time",
-  }
-];
-
 const Elibrary = () => {
+  const [newRequests, setNewRequests] = useState([
+    {
+      title: "Toothpaste vendor",
+      description: "Need 200 units of Colgate",
+    },
+    {
+      title: "Battery vendor",
+      description: "Need 394 units of Duracell",
+    },
+    {
+      title: "Stationery vendor",
+      description: "Need 250 units of Doms pencil",
+    },
+    {
+      title: "Milk vendor",
+      description: "Need 150 units of Amul doodh",
+    },
+    {
+      title: "Milk vendor",
+      description: "Need 150 units of Amul doodh",
+    },
+    {
+      title: "Milk vendor",
+      description: "Need 150 units of Amul doodh",
+    },
+  ]);
+
+  const [newIssues, setNewIssues] = useState([
+    {
+      title: "Vendor 1",
+      description: "Toothpaste bottles have faulty labeling",
+    },
+    {
+      title: "Vendor 2",
+      description: "Leaked Batteries",
+    },
+    {
+      title: "Vendor 3",
+      description: "Pencils broken",
+    },
+    {
+      title: "Vendor 3",
+      description: "Pencils broken",
+    },
+    {
+      title: "Vendor 3",
+      description: "Pencils broken",
+    },
+    {
+      title: "Vendor 3",
+      description: "Pencils broken",
+    },
+  ]);
+
+  const [feedbacks, setFeedbacks] = useState([
+    {
+      title: "Vendor 1",
+      description: "Insane delivery time",
+    },
+    {
+      title: "Vendor 2",
+      description: "Insane delivery time",
+    },
+    {
+      title: "Vendor 3",
+      description: "Insane delivery time",
+    },
+    {
+      title: "Vendor 4",
+      description: "Insane delivery time",
+    },
+    {
+      title: "Vendor 5",
+      description: "Insane delivery time",
+    },
+    {
+      title: "Vendor 6",
+      description: "Insane delivery time",
+    },
+    {
+      title: "Vendor 7",
+      description: "Insane delivery time",
+    },
+  ]);
+
+  const handleClearIssue = (index) => {
+    const updatedIssues = [...newIssues];
+    updatedIssues.splice(index, 1);
+    setNewIssues(updatedIssues);
+  };
+
   return (
     <div>
       <Nav />
@@ -111,7 +117,7 @@ const Elibrary = () => {
                   <p className="text-lg font-semibold">{issue.title}</p>
                   <p className="text-sm text-gray-600">{issue.description}</p>
                 </div>
-                <Button color="red" size="sm">
+                <Button color="red" size="sm" onClick={() => handleClearIssue(index)}>
                   Clear Issue
                 </Button>
               </div>

@@ -13,17 +13,17 @@ import {
 const productSales = [
   {
     name: 'Jan',
-    retailer1: 40,
-    retailer2: 40,
+    retailer1: 70,
+    retailer2: 30,
   },
   {
     name: 'Feb',
-    retailer1: 20,
+    retailer1: 40,
     retailer2: 56,
   },
   {
     name: 'Mar',
-    retailer1: 4,
+    retailer1: 42,
     retailer2: 42,
   },
   {
@@ -34,12 +34,12 @@ const productSales = [
   {
     name: 'May',
     retailer1: 80,
-    retailer2: 3,
+    retailer2: 30,
   },
   {
     name: 'Jun',
     retailer1: 90,
-    retailer2: 20,
+    retailer2: 80,
   },
 ];
 
