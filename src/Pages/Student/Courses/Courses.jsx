@@ -89,14 +89,15 @@ const Courses = () => {
 
         {/* Google Map */}
         <div className="flex justify-center mb-8">
-          <iframe
-            title="Google Map"
-            style={{ width: "90%", height: "400px", maxWidth: "800px" }}
-            frameBorder="0"
-            marginHeight="0"
-            marginWidth="0"
-            src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Pinnacle%20Group%20Tuition%20-%20JEE/NEET%20Classes.,%20Monalisa%20Apartment,%20Shreeji-Little%20millennium%20street,%20beside%20Union%20Bank,%20Sector-19,%20Airoli,%20Navi%20Mumbai,%20Maharashtra%20400708+(Pinnacle%20Group%20Tutions)&amp;t=k&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-          ></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14329.37482378676!2d72.991028!3d19.159273!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7bff4b54fa8fd%3A0xc39c1e0a30a91470!2sPinnacle%20Group%20Tuition%20-%20JEE%2FNEET%20Classes.!5e1!3m2!1sen!2sus!4v1710647779749!5m2!1sen!2sus" 
+        width="500" 
+        height="300"  
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade"
+  
+></iframe>
+
         </div>
 
         {/* Courses Section */}
