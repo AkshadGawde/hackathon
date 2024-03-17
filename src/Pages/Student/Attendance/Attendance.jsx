@@ -92,9 +92,9 @@ const Attendance = () => {
     <>
       <Nav />
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold mb-8 text-center">My Network</h1>
+        <h1 className="text-3xl font-bold mb-8 text-center">Your Network</h1>
         {/* Search bar */}
-        <div className="mb-6 flex justify-center items-center">
+        <div className="mb-8 flex justify-center items-center">
           <input
             type="text"
             placeholder="Search by name"
@@ -133,9 +133,9 @@ const Attendance = () => {
                     <div
                       style={{
                         width: `${(person.itemsSold / person.connections) * 100}%`,
-                        backgroundColor: "#FF0000", // Red color
+                        backgroundColor: "green", // Red color
                       }}
-                      className="h-full bg-gradient-to-r from-red-500 to-yellow-500" // Red to Yellow gradient
+                      className="h-full " // Red to Yellow gradient
                     ></div>
                   </div>
                 </div>
