@@ -32,14 +32,17 @@ const Account = () => {
     {
       title: "Retailer 1",
       description: "Total Inventory",
+      progress: 96,
     },
     {
       title: "Retailer 2",
       description: "Total Inventory",
+      progress: 40,
     },
     {
       title: "Retailer 3",
       description: "Total Inventory",
+      progress: 60,
     },
   ];
 
@@ -73,7 +76,19 @@ const Account = () => {
     },
   ];
 
-  const progress = 70;
+  const getProgressBarColor = (progress) => {
+    if (progress >= 0 && progress < 30) {
+      return "bg-red-500";
+    } else if (progress >= 30 && progress < 50) {
+      return "bg-orange-500";
+    } else if (progress >= 50 && progress < 70) {
+      return "bg-yellow-300";
+    } else if (progress >= 70 && progress <= 100) {
+      return "bg-green-500";
+    } else {
+      return ""; // Default color if progress is out of range
+    }
+  };
 
   return (
     <>
@@ -83,36 +98,39 @@ const Account = () => {
           Welcome, {userName}
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        <Card>
-  <ResponsiveContainer>
-    <CardHeader>
-      <CardTitle>Retailers</CardTitle>
-    </CardHeader>
-    <CardContent className="grid gap-4">
-      {newAssignments.map((assignment, index) => (
-        <div
-          key={index}
-          className="flex items-center justify-between border-b border-gray-200 pb-2 relative"
-        >
-          <div>
-            <p className="text-lg font-semibold">{assignment.title}</p>
-            <p className="text-sm text-gray-500">{assignment.description}</p>
-          </div>
-          {/* Progress Bar */}
-          <div className="w-1/2 h-3 bg-gray-200 rounded-full overflow-hidden">
-          <div
-  className={`h-full bg-gradient-to-r from-red-500 to-green-500 via-yellow-300`}
-  style={{ width: `${progress}%` }}
-></div>
-          </div>
-        </div>
-      ))}
-    </CardContent>
-    <CardFooter>
-      <Button onClick={navNetwork}>View All</Button>
-    </CardFooter>
-  </ResponsiveContainer>
-</Card>
+          <Card>
+            <ResponsiveContainer>
+              <CardHeader>
+                <CardTitle>Retailers</CardTitle>
+              </CardHeader>
+              <CardContent className="grid gap-4">
+                {newAssignments.map((assignment, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center justify-between border-b border-gray-200 pb-2 relative"
+                  >
+                    <div>
+                      <p className="text-lg font-semibold">{assignment.title}</p>
+                      <p className="text-sm text-gray-500">{assignment.description}</p>
+                    </div>
+                    {/* Progress Bar */}
+                    <div className="w-1/2 h-3 bg-gray-200 rounded-full overflow-hidden relative">
+                      <div
+                        className={`h-full ${getProgressBarColor(assignment.progress)}`}
+                        style={{ width: `${assignment.progress}%` }}
+                      ></div>
+                      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black text-xs font-bold">
+                        {assignment.progress}%
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </CardContent>
+              <CardFooter>
+                <Button onClick={navNetwork}>View All</Button>
+              </CardFooter>
+            </ResponsiveContainer>
+          </Card>
 
           <Card>
             <ResponsiveContainer>
